@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>form的属性演示</title>
+</head>
+<body>
+	<form method="post">
+		姓名：<input type="text" name="userName" placeholder="用户名"/> <br />
+		密码：<input type="password" name="password" /> <br />
+		
+
+		性别：   <input type="radio" name="sex" value="男" checked="checked" />男
+			  <input type="radio" name="sex" value="女" />女 <br />
+		取向：   <input type="radio" name="sex" value="男"  />男
+			  <input type="radio" name="sex" value="女" checked="checked"/>女 <br />
+			  
+		爱好：<input type="checkbox" name="skill" value="java" />JAVA
+			<input type="checkbox" name="skill" value="c++" />C++
+			<input type="checkbox" name="skill" value="database" />DATABASE
+			<input type="checkbox" name="skill" value="html" />HTML<br />
+		文本框：
+			<textarea name="text" style="width: 300px;height: 100px;">--在此输入文本内容--</textarea> <br />
+		按钮：
+			<input type="button" value="这有个按钮" onclick="alert('你点击了我！')" /> <br />
+		
+		<!-- 下拉框 -->
+		国籍：   <select name="country">
+					<option value="none" selected="selected">--选择国家--</option>
+					<option value="cn">中国</option>
+					<option value="cn">中国</option>
+					<option value="cn">中国</option>
+				</select> <abbr />
+		
+		
+		<input type="reset" value="重置"/>
+		<input type="submit" value="提交" /></br>
+		隐藏域<input type="hidden" name="field＿name" value="value"> 
+	</form>
+</body>
+</html>
