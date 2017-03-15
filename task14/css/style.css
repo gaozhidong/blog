@@ -1,0 +1,94 @@
+@charset "utf-8";
+div,
+ul,
+li,
+p,
+input {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "WenQuanYi Micro Hei";
+	font-size: 14px;
+	color: #87968e;
+	background: #fff2e3;
+	text-align: center;
+}
+
+h1 {
+	font-size: 42px;
+}
+
+a {
+	color: #72b890;
+}
+
+a {
+	text-decoration: none;
+}
+
+.layout {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.btn {
+	display: inline-block;
+	margin: 3px;
+	padding: 6px 14px;
+	font-weight: normal;
+	border-radius: 2px;
+	background: #72b890;
+	color: #fff;
+}
+
+.btn:hover {
+	opacity: 0.8;
+}
+
+.active {
+	opacity: 0.6;
+}
+
+
+#header h1 {
+	margin-top: 30px;
+}
+
+.intro {
+	margin-top: 10px;
+	opacity: 0.6;
+}
+
+.demo-btns {
+	margin: 40px 0;
+}
+
+.demo-btns>li {
+	display: inline-block;
+}
+
+.preview{
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	line-height: 400px;
+	background: salmon;
+	color: forestgreen;
+	font-size: 30px;
+}
+
+.btns {
+	margin-top: 30px;
+}
+
+#footer {
+	margin-top: 30px;
+}

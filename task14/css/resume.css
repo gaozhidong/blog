@@ -1,0 +1,334 @@
+@charset "utf-8";
+
+.nav-list-03 a {
+    border-bottom: 4px solid #645abc;
+}
+
+/*导航 结束*/
+
+/*主要内容 开始*/
+.archive-wrap {
+    width: 100%;
+    background-color: #f0f1f5;
+    padding: 30px 0 50px;
+}
+
+.archive {
+    padding-bottom: 40px;
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+
+}
+
+/*主要内容 结束*/
+
+/*头部 开始*/
+.archive-top {
+    margin-bottom: 15px;
+
+}
+
+.archive-top-title {
+    padding: 0 40px;
+    color: #ffffff;
+    background-color: #4c4b62;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.archive-top-title-left {
+    display: flex;
+    align-items: center;
+    line-height: 100px;
+    font-size: 24px;
+}
+
+.archive-top-title-left img {
+    margin-right: 15px;
+}
+
+.archive-top-title-right {
+    display: flex;
+
+}
+
+.archive-top-title-right-share {
+    margin-right: 30px;
+    cursor: pointer;
+    text-align: right;
+    position: relative;
+}
+
+.archive-top-title-right .share-to {
+    display: none;
+}
+
+.archive-top-title-right .share-to-content {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    bottom: -19px;
+    width: 98px;
+    border: 1px solid #EBEBEB;
+}
+
+.archive-top-title-right-report {
+    cursor: pointer;
+}
+
+.archive-top-title-right-share-bg {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+
+}
+
+.archive-top-title-right-report-bg {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+.archive-top-infor {
+    padding: 30px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.archive-top-infor-left {
+    display: flex;
+    line-height: 32px;
+}
+
+.archive-top-infor-left-face {
+    margin-right: 30px;
+    width: 130px;
+    height: 130px;
+    border: 1px solid #EBEBEB;
+    border-radius: 14px;
+    background-size: 100% 100%;
+}
+
+.archive-top-infor-left-face img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.archive-top-infor-left-word .name {
+    font-size: 20px;
+    color: #645abc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.archive-top-infor-left-word .name span {
+    margin-right: 7px;
+}
+
+.archive-top-infor-left-word .word-list {
+    display: flex;
+}
+
+.archive-top-infor-left-word .word-list > div {
+    width: 300px;
+}
+
+.archive-top-infor-left-word .word-list > div > p span:nth-child(1) {
+    color: #999999;
+}
+
+.word-list-right {
+    position: relative;
+}
+
+.word-list-right .phone, .word-list-right .email {
+    display: none;
+
+}
+
+.archive-top-infor-left-word .word-list-right .pay-view {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffb752;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    cursor: pointer;
+
+}
+
+.archive-top-infor-right {
+    font-size: 16px;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.archive-top-infor-right img {
+    margin-right: 10px;
+}
+
+/*头部 结束*/
+
+/*职业基本信息 开始*/
+
+.archive-essential, .archive-intension, .archive-work, .archive-school, .archive-project, .archive-profession {
+    line-height: 32px;
+    padding: 20px 50px 0;
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 15px;
+
+}
+
+.archive-essential-title, .archive-intension-title, .archive-work-title, .archive-school-title, .archive-project-title, .archive-profession-title {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.archive-essential-title-icon, .archive-intension-title-icon, .archive-work-title-icon, .archive-school-title-icon, .archive-project-title-icon, .archive-profession-title-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.archive-essential-content, .archive-intension-content, .archive-work-content, .archive-school-content, .archive-project-content, .archive-profession-content {
+    padding: 20px 35px 15px;
+    border: 1px solid #EBEBEB;
+}
+
+/*以上是标题*/
+
+.archive-essential-content-up {
+    display: flex;
+
+}
+
+.archive-essential-content-up > div p {
+    width: 500px;
+}
+
+.archive-essential-content-up > div p span:nth-child(1) {
+    color: #999999;
+}
+
+.archive-essential-content-down {
+    display: flex;
+}
+
+.archive-essential-content-down > p {
+    color: #999999;
+}
+
+.archive-essential-content-down > div {
+    flex: 1;
+}
+
+/*职业基本信息 结束*/
+
+/*求职意向 开始*/
+
+.archive-intension-content {
+    display: flex;
+}
+
+.archive-intension-content > div p {
+    width: 550px;
+}
+
+.archive-intension-content > div p span:nth-child(1) {
+    color: #999999;
+    text-align: right;
+    width: 100px;
+    display: inline-block;
+}
+
+/*求职意向 结束*/
+
+/*工作经历 开始*/
+.archive-work {
+    background: none;
+    /*background-color: coral;*/
+}
+
+/*时间轴 开始*/
+.time-tree {
+    position: relative;
+    z-index: 999999;
+
+}
+
+.time-tree .col645 {
+    margin-right: 30px;
+}
+
+.time-tree small {
+    color: #CCCCCC;
+    margin: 0 10px;
+}
+
+.time-tree-line {
+    width: 2px;
+    height: 100%;
+    background-color: #645abc;
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    z-index: -1;
+}
+
+.time-tree-content-step {
+    padding-left: 50px;
+    background: url(../img/education-list-03.png) 0 5px no-repeat;
+    margin-bottom: 15px;
+
+}
+
+/*时间轴 结束*/
+/*工作经历 结束*/
+
+
+.archive-profession-content:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.archive-profession-content > p {
+    color: #645abc;
+    float: left;
+    line-height: 40px;
+    height: 40px;
+    background-color: #efeef8;
+    border: 1px solid #645abc;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    margin: 10px 20px 10px 0;
+
+}
+
