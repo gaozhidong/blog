@@ -1,11 +1,13 @@
 @charset "utf-8";
-
-.nav-list-03 a {
-    border-bottom: 4px solid #645abc;
+body,div,ul,li,p,input{
+	margin: 0;
+	padding: 0;
 }
-
-/*导航 结束*/
-
+body {
+	font-family: "WenQuanYi Micro Hei";
+	font-size: 14px;
+	color: #87968e;
+}
 /*主要内容 开始*/
 .archive-wrap {
     width: 100%;
@@ -112,12 +114,13 @@
 }
 
 .archive-top-infor-left-face {
-    margin-right: 30px;
+    margin-right: 20px;
     width: 130px;
     height: 130px;
     border: 1px solid #EBEBEB;
     border-radius: 14px;
     background-size: 100% 100%;
+    margin-left: 30px;
 }
 
 .archive-top-infor-left-face img {
@@ -131,6 +134,7 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    text-indent: 100px;
 }
 
 .archive-top-infor-left-word .name span {
@@ -143,6 +147,7 @@
 
 .archive-top-infor-left-word .word-list > div {
     width: 300px;
+    margin-left: 100px;
 }
 
 .archive-top-infor-left-word .word-list > div > p span:nth-child(1) {
