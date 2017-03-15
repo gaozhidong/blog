@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>垂直居中</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				
+				border: 1px solid firebrick;
+				margin: 10px auto 0;
+			}
+			h4{
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			.box-1{
+				height: 100px;
+				width: 100px;
+			}
+			.first{
+				width: 100px;
+				height: 100px;
+				padding: 100px 250px;
+			}
+			.first-01{
+				background: greenyellow;				
+			}
+			.second{
+				width: 600px;
+				height: 300px;
+				position: relative;
+			}
+			.second-01{
+				position: absolute;
+				left: 250px;
+				top: 100px;
+				background: red;
+			}
+			.three{
+				width: 600px;
+				height: 300px;
+				text-align: center;
+			}
+			.three span{
+				display: inline-block;
+				height: 100%;
+				width: 50px;
+				vertical-align: middle;
+			}
+			.three-01{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.four{
+				width: 600px;
+				height: 300px;
+				line-height: 300px;
+			}
+			.five{
+				width: 300px;
+				height: 600px;
+				margin-bottom: 300px;
+			}
+			.five-01,.five-02,.five-03{
+				position: relative;
+			}
+			.content{
+				width: 200px;
+				height: 80px;
+				margin: 50px 50px 0;
+				border: 1px solid #CCCCCC;
+			}
+
+			.five-01 .triangle{
+				position: absolute;
+				top: -9px;
+				left: 54px;
+				border-left: 10px solid transparent ;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid #ccc;
+			}
+
+			.five-02 .triangle{
+			    position: absolute;
+			    top: 0px;
+			    right: 48px;
+			    border-top: 10px solid red;
+			    border-right: 10px solid red;
+			    border-left: 10px solid transparent;
+			    border-bottom: 10px solid transparent;
+			}
+			.five-03 .triangle2{
+				position: absolute;
+				top: -9px;
+				left: 60px;
+				border-left: 10px solid transparent ;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid #ccc;
+			}
+			.five-03 .triangle2:after{
+				content: '';
+			    display: block;
+			    position: absolute;
+			    top: 2px;
+			    left: -10px;
+			    border-left: 10px solid transparent;
+			    border-right: 10px solid transparent;
+			    border-bottom: 10px solid #fff;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h4>padding</h4>
+		<div class="box first">
+			<div class="first-01 box-1"></div>
+		</div>
+		<h4>定位</h4>
+		<div class="box second">
+			<div class="second-01 box-1"></div>
+		</div>
+		<h4>vertical-align</h4>
+		<div class="box three">
+			<span>基线</span>
+			<img src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg" class="three-01 box-1"/>
+		</div>
+		<h4>line-height</h4>
+		<div class="box four">
+				行高
+		</div>
+		<div class="box five">
+			<div class="five-01">
+				<span class="triangle"></span>
+				<div class="content"></div>
+			</div>
+			<div class="five-02">
+				<span class="triangle"></span>
+				<div class="content"></div>
+			</div>
+			<div class="five-03">
+				<span class="triangle2"></span>
+				<div class="content"></div>
+			</div>
+		</div>
+	</body>
+</html>
