@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tab 切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        ol {
+            list-style: none;
+        }
+        
+        .tabs .nav>ol {
+            display: flex;
+        }
+        
+        .tabs .nav>ol>li {
+            border: 1px solid red;
+            padding: 0 2em;
+        }
+        
+        .tabs .nav>ol>li.active {
+            background: red;
+        }
+        
+        .tabs>.panes>ol>li {
+            border: 1px solid blue;
+            min-height: 5em;
+            display: none;
+        }
+        
+        .tabs>.panes>ol>li.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <nav class="nav">
+            <ol>
+                <li class=active>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
+        </nav>
+        <div class="panes">
+            <ol>
+                <li class=active>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ol>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="tabs">
+        <nav class="nav">
+            <ol>
+                <li class=active>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
+        </nav>
+        <div class="panes">
+            <ol>
+                <li class=active>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ol>
+        </div>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            $('.tabs').on('click', '.nav ol>li', function (e) {
+                var $li = $(e.currentTarget)
+                var n = $li.index()
+                $li.addClass('active').siblings('.active').removeClass('active')
+                $li.closest('.tabs').find('.panes>ol>li').eq(n)
+                    .addClass('active').siblings('.active')
+                    .removeClass('active')
+            })
+        </script>
+</body>
+
+</html>
