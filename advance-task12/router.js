@@ -45,3 +45,13 @@ app.post('/comment', function(req, res) {
 });
 
 
+
+app.get('/loadMore', function(req, res) {
+    var curIdx = req.query.index;
+    var length = req.query.length;
+    var data = [];
+    for(var i = 0;i < length;i++){
+       data.push("新闻"+(parseInt(curIdx) + i));
+    }
+  res.send(data);  
+});
