@@ -2,123 +2,73 @@
 <html lang="en">
 
 <head>
-    <title>loadMore</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        ul,
-        li {
-            padding: 0;
-            margin: 0;
-        }
-
-        #ct li {
-            list-style: none;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        #load-more {
-            display: block;
-            margin: 10px auto;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        #load-more img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            height: 40px;
-            line-height: 40px;
-            width: 80px;
-            border: 1px solid #e27272;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: none;
-            color: #e27272;
-        }
-
-        .btn:hover {
-            background: green;
-            color: #fff;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 
 <body>
-    <ul id="ct"></ul>
-    <a id="load-more" class="btn" href="#">加载更多</a>
-</body>
-<script>var btn = document.querySelector("#load-more");
-var ct = document.querySelector("#ct");
-var pageIndex = 0;
-var isDataArrive = true;
-btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (!isDataArrive) {
-        return;
-    }
-    loadData(function (news) {
-        renderPage(news);
-        pageIndex +=5;
-        isDataArrive = true;
-    })
-    isDataArrive = false;
-})
+    <button id="btn">点我</button>
 
-function loadData(callback) {
-    ajax({
-        type: "get",
-        url: "/loadMore",
-        data: {
-            index: pageIndex,
-            length: 5
-        },
-        onSuccess: callback,
-        onError: function () {
-            console.log("error")
-        }
-    })
-}
+    <script>
+        //ajax封装
+        function ajax(opts) {
+            var xhr = new XMLHttpRequest()
+            var url = opts.url
+            console.log(opts.data)
 
-
-function renderPage(news) {
-    var fragment = document.createDocumentFragment();
-    for (var i = 0; i < news.length; i++) {
-        var node = document.createElement("li");
-        node.innerText = news[i];
-        fragment.appendChild(node);
-    }
-    ct.appendChild(fragment)
-}
-
-function ajax(options) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200 || xhr.status === 304) {
-                var results = JSON.parse(xhr.responseText);
-                options.onSuccess(results);
-            } else {
-                options.onError();
+            if (opts.type.toLowerCase() === 'get') {
+                url = url + '?'
+                for (var key in opts.data) {
+                    var url = url + key + '=' + opts.data[key] + '&'
+                }
+                url = url.substr(0, url.length - 1)
+                console.log(url)
+                xhr.open('get', url, true)
+                xhr.setRequestHeader('Content-Type', 'text/json')
+                xhr.send(null)
+            } else if (opts.type.toLowerCase() === 'post') {
+                xhr.open('post', url, true)
+                var data = ''
+                for (var key in opts.data) {
+                    console.log(key)
+                    data = data + key + '=' + opts.data[key] + '&'
+                }
+                data = data.substr(0, data.length - 1)
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+                xhr.send(data)
             }
-            isDataArrive = true;
+
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status === 200 || xhr.status === 304) {
+                        opts.success(xhr.responseText)
+                    } else {
+                        opts.error()
+                    }
+                }
+
+            }
         }
-    }
-    var query = "?";
-    for (key in options.data) {
-        query += key + "=" + options.data[key] + "&"
-    }
-    query = query.substr(0, query.length - 1)
-    xhr.open(options.type, options.url + query, true);
-    xhr.send();
-}
-</script>
+        document.querySelector('#btn').addEventListener('click', function () {
+            ajax({
+                url: '/login',   //接口地址
+                type: 'get',               // 类型get
+                data: {
+                    username: 'xiaoming',
+                    password: 'abcd123'
+                },
+                success: function (ret) {
+                    console.log(ret);
+                },
+                error: function () {
+                    console.log('出错了')
+                }
+            })
+        });
+    </script>
+</body>
 
 </html>
