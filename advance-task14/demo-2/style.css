@@ -1,0 +1,109 @@
+body, ul, li, h4, p{
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+a { 
+    display: block;
+    text-decoration: none;
+    color:#000;
+    font-size:14px;
+}
+img {
+    display: block;
+}
+.line {
+    float: left;
+    width: 1px;
+    height: 14px;
+    margin-top:12px;
+    background: #bbb;
+}
+.ct {
+    height: 525px;
+    width: 600px;
+    margin: 20px auto 0;
+    position: relative;
+}
+.ct-head {
+    float: left;
+    list-style-type: none;
+    border: 1px solid #bbb;
+    border-radius: 4px 4px 0 0;
+}
+.ct-head-item {
+    float: left;
+    padding:6px 10px;
+}
+.clearfix {
+    *zoom:1;
+}
+.clearfix:after {
+    content:'';
+    display: table;
+    clear: both;
+}
+.ct-content-wrap {
+    display: none;
+    border: 1px solid #bbb;
+    font-size:0px;
+    position: absolute;
+    top:34px;
+    left:0px;
+    width: 672px;
+    height: 489px;
+    overflow: hidden;
+}
+.ct-content {
+    margin-right:-21px;
+    display: none;
+}
+.ct-content-item {
+    position: relative;
+    float: left;
+    width: 170px;  
+    height: 234px;
+    padding:0 20px;
+    margin:-1px 20px 20px -1px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+}
+.ct-content-item-cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+}
+.ct-content-item-cover a {
+   position: absolute;
+   left: 50%;
+   top:50%;
+   margin-top:-18px;
+   margin-left:-40px;
+   color:red;
+   padding:8px 12px;
+   background-color: #fff;
+   border-radius:4px;
+   border: 1px solid red;
+}
+.ct-content img {
+    padding:20px 20px;
+}
+.ct-content-item .prod-name {
+    
+    font:normal 12px 'mircosoft yahei';
+}
+.ct-content-item .pro-price{
+    padding: 5px 0;
+    color:red;
+}
+.show {
+    display: block;
+}
+.active {
+    color:red!important;
+    background-color: #eee;
+}

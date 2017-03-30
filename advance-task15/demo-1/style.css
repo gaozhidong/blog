@@ -1,0 +1,16 @@
+#cc {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    text-align:center;
+    line-height: 200px; 
+}
+ .in {
+     height: 25px;
+     padding:3px;
+     font-size:16px;
+     border: 1px solid #000;
+ }
+fieldset {
+  margin: 10px 0;
+}
