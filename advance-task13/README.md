@@ -1,9 +1,15 @@
 ## 跨域
 
+### jsonp
+    需要后端支持，把数据包裹起来
+    前端通过script标签接收来自后端的js代码
+    再与前端已有的js代码一起运行实现跨域获取数据
+    不用启动服务也能实现跨域
+    
 #### CORS
     CORS全称是跨域资源共享（Cross-Origin Resource Sharing），是一种ajax跨域请求资源的方式，支持现代浏览器，IE支持10以上。
 ###### 实现方式
-       当你使用 XMLHttpRequest 发送请求时，浏览器发现该请求不符合同源策略，会给该请求加一个请求头：Origin，后台进行一系列处理，如果确定接受请求则在返回结果中加入一个响应头：Access-Control-Allow-Origin; 浏览器判断该相应头中是否包含 Origin 的值，如果有则浏览器会处理响应，我们就可以拿到响应数据，如果不包含浏览器直接驳回，这时我们无法拿到响应数据。所以 CORS 的表象是让你觉得它与同源的 ajax 请求没啥区别，代码完全一样。
+>当你使用 XMLHttpRequest 发送请求时，浏览器发现该请求不符合同源策略，会给该请求加一个请求头：Origin，后台进行一系列处理，如果确定接受请求则在返回结果中加入一个响应头：Access-Control-Allow-Origin; 浏览器判断该相应头中是否包含 Origin 的值，如果有则浏览器会处理响应，我们就可以拿到响应数据，如果不包含浏览器直接驳回，这时我们无法拿到响应数据。所以 CORS 的表象是让你觉得它与同源的 ajax 请求没啥区别，代码完全一样。
 
     <img src="cors/cors-img.png" tit="cors-img">
     <img src="cors/cors-img2.png" >
