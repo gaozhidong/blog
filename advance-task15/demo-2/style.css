@@ -1,29 +1,33 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
 }
-ul,li {
-
+a {
+    color: #666;
+    text-decoration: none;
+}
+ul {
     list-style-type: none;
-    line-height: 1.5;
 }
-li {
-    margin-top:10px;
-    border: 1px solid #bbb;
-    padding:8px;
+.ct li{
+    padding: 10px 10px;
+    margin:10px 10px;
+    border: 1px solid #ccc;
 }
-li:hover{
-    background:green;
+.ct li:hover{
+    background-color: lightgreen;
+}
+.ct-btn {
+    text-align: center;
 }
 .btn{
+    padding: 10px 15px;
+    border: 1px solid #e75480;
     display: inline-block;
-    padding:10px 8px;
-    text-decoration:none;
-    border: 1px solid red;
-    border-radius:4px;
-    color:red;
+    margin: 0 auto;
+    color: #e75480;
 }
-div {
-    margin-top:16px;
-    text-align: center;
+.btn:active{
+    background-color: #f60;
+    color: #fff;
 }
