@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>demo-1</title>
@@ -7,32 +8,41 @@
 </head>
 
 <body>
-    <fieldset>
-        <legend>点我变色</legend>
-        <button class="btn">点我</button>
-    </fieldset>
-    <fieldset>
-        <legend>获取滚动高度</legend>
-        <button class="btn1">点我</button><span></span>
-    </fieldset>
-    <fieldset>
-        <legend>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
-        <div id="cc">come on</div>
-    </fieldset>
-    <fieldset>
-        <legend>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</legend>
-        <input type="text" class="in">
-    </fieldset>
-    <fieldset>
-        <legend>当选择 select 后，获取用户选择的内容</legend>
-        <select name="" id="">
-       <option value="" select>请选择</option>
-       <option value="BJ">北京</option>
-       <option value="SH">上海</option>
-       <option value="GJ">广州</option>
-       <option value="SZ">深圳</option>  
-     </select>
-    </fieldset>
+    <form action="">
+        <div class="box">
+            <h3>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</h3>
+            <p class="btn">我是$btn</p>
+        </div>
+
+        <div class="box">
+            <h3>当窗口滚动时，获取垂直滚动距离</h3>
+            <p class="distance">0PX</p>
+            <div class="rollbox">
+                <p>滚来滚去</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</h3>
+            <div class="discoloration">我是$div</div>
+        </div>
+
+        <div class="box">
+            <h3>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</h3>
+            <input type="text" placeholder="请输入英文字母" class="txt">
+        </div>
+        <div class="box">
+            <h3>当选择 select 后，获取用户选择的内容</h3>
+            <p class="choosetxt">谁才是天梯毒瘤：<span></span></p>
+            <select name="" class="choose">
+                <option value="1">法师</option>
+                <option value="2">萨满</option>
+                <option value="3">牧师</option>
+                <option value="4">术士</option>
+                <option value="5">猎人</option>
+            </select>
+        </div>
+    </form>
 
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="index.js"></script>
