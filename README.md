@@ -15,3 +15,16 @@
 #### advance-task12
 
     
+
+#### advance-task13
+
+#### advance-task14
+
+#### advance-task15
+
+jQuery操作
+
+#### advance-task16
+懒加载
+
+#### advance-task17
