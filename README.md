@@ -39,3 +39,9 @@ jQuery操作
 
 #### advance-task17
 轮播图
+
+###### 左右滚动无限循环轮播效果
+[index.html]()
+
+###### 一个渐变轮播效果
+[index-2.html]()
