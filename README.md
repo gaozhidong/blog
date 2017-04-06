@@ -1,32 +1,42 @@
 # 目录
 
-#### task13  
+### task13  
 
 [居中方式](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/task13/task13.html)
 
-#### task14
+### task14
 
 [简单的静态页面一](https://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/task14/index.html)    
 
-#### task15
+### task15
 
 [简单的静态页面二](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/task15/index.html)    
 
-#### advance-task12
-
+### advance-task12
+##### ajax
     
 
-#### advance-task13
+### advance-task13
+##### 跨域
 
-#### advance-task14
 
-#### advance-task15
+### advance-task14
+![](http://home.jscode.me/uploads/default/original/1X/6fa8fcceae2302be6e3edf5040fe24c44c44c77f.gif)</br>
+[代码](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task14/demo-1/index.html)
 
-jQuery操作
+![](http://home.jscode.me/uploads/default/original/1X/40ce161fccb9c958ce39bc6caf6b142eec3a1fe8.gif)</br>
+[代码](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task14/demo-2/index.html)
 
-#### advance-task16
+![](http://home.jscode.me/uploads/default/original/1X/bde2c4f39009ac2dec331e18738988e1c650157b.gif)</br>
+[代码](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task14/demo-3/index.html)
 
-###### 懒加载
+### advance-task15
+
+[jQuery操作](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task15/demo-1/index.html)
+
+### advance-task16
+
+##### 懒加载
 
 ###### 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。每次出现都在控制台打印 true 。
 [task-2.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task16/task-2.html)
@@ -37,11 +47,11 @@ jQuery操作
 ###### 图片懒加载效果
 [task-4.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task16/task-4.html)
 
-#### advance-task17
+### advance-task17
 轮播图
 
 ###### 左右滚动无限循环轮播效果
-[index.html]()
+[index.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task17/html/index.html)
 
 ###### 一个渐变轮播效果
-[index-2.html]()
+[index-2.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task17/html/index-2.html)
