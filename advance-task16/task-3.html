@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断一个元素是不是出现在窗口可视范围。在元素第一次出现时在控制台打印 true，以后再次出现不做任何处理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .scroll {
+            height: 1500px;
+            border: 1px solid;
+        }
+        
+        .show {
+            border: 1px solid red;
+            background: red;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll"></div>
+    <span class="show">目标元素</span>
+    <div class="scroll"></div>
+
+    
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        $(window).on('scroll', function () {
+            if (isVisible($('.show')) && $('.show').hasClass('showed') === false) {
+                console.log(true)
+                $('.show').addClass('showed')
+            }
+        })
+
+
+
+        function isVisible($node) {
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.height();
+            if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

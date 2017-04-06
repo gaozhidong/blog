@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>图片懒加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .load li {
+            float: left;
+            margin: 0 62px;
+            list-style: none;
+        }
+        
+        .load::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="load">
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+        <li><img src="http://img.zcool.cn/community/01443f564897a432f87512f6eed753.gif" height="500px" width="500px" data-src="http://www.fotor.com/images2/features/photo_effects/e_bw.jpg"
+                alt=""></li>
+
+    </ul>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        check();//保证打开时就加载前面的图片，而不用等到滚动才加载
+
+        $(window).on('scroll', check)
+
+        function check() {
+            $('.load img').not('.showed').each(function () {
+                if (isVisible($(this))) {
+                    showImg($(this))
+                    console.log(1)
+                }
+            })
+
+        }
+        function showImg($imgs) {
+            $imgs.each(function () {
+                var imgUrl = $(this).attr('data-src');
+                $(this).attr('src', imgUrl);
+                $(this).addClass('showed')
+            })
+        }
+
+        function isVisible($node) {
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.height();
+            if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
