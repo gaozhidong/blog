@@ -25,7 +25,17 @@
 jQuery操作
 
 #### advance-task16
-懒加载
+
+###### 懒加载
+
+###### 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。每次出现都在控制台打印 true 。
+[task-2.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task16/task-2.html)
+
+###### 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。在元素第一次出现时在控制台打印 true，以后再次出现不做任何处理
+[task-3.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task16/task-3.html)
+
+###### 图片懒加载效果
+[task-4.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task16/task-4.html)
 
 #### advance-task17
 轮播图

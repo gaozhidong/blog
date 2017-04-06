@@ -2,98 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>新闻懒加载</title>
-    <style>
-
-       div, ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
-        body{
-                padding-top: 500px;
-                /*出现滚动条*/
-        }
-        .news {
-            margin: 0 auto;
-            width: 540px;
-        }
-        
-        .news li {
-            list-style: none;
-        }
-        
-        .getnews {
-            height: 8px;
-            /*border: 1px solid red;*/
-        }
-    </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>新闻懒加载</title>
+        <style>
+                div,
+                ul,
+                li {
+                        margin: 0;
+                        padding: 0;
+                }
+                
+                body {
+                        padding-top: 500px;
+                        /*出现滚动条*/
+                }
+                
+                .news {
+                        margin: 0 auto;
+                        width: 540px;
+                }
+                
+                .news li {
+                        list-style: none;
+                }
+                
+                .getnews {
+                        height: 8px;
+                        /*border: 1px solid red;*/
+                }
+        </style>
 </head>
 
 <body>
-    <div class="container">
-        <ul class="news">
-        </ul>
-    </div>
-    <p class="getnews"></p>
-     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script>
-
-        var pageIndex = 0;
-        var isOver = false; //数据获取完毕锁，避免发出多余的请求
-        var isArrived = true; //数据到来锁，避免数据到来之前滚动太快再次发送请求
-        load();
-        $(window).on('scroll', function () {
-            if (!isOver && isArrived) {
+        <div class="container">
+                <ul class="news">
+                </ul>
+        </div>
+        <p class="getnews"></p>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+                var pageIndex = 0;
+                var isOver = false; //数据获取完毕锁，避免发出多余的请求
+                var isArrived = true; //数据到来锁，避免数据到来之前滚动太快再次发送请求
                 load();
-            }
-        });
-        function load() {
-            if (isVisible($('.getnews'))) {
-                isArrived = false;
-                $.ajax({
-                    url: '/loadNews',
-                    type: 'get',
-                    data: { page: pageIndex }
-                }).done(function (ret) {
-                    pageIndex++;
-                    appendHtml(ret);
-                    isArrived = true;
-                }).fail(function () {
-                    console.log("请求数据失败")
-                })
-            }
-        }
-        function appendHtml(retnews) {
-            console.log(pageIndex)
-            if (retnews.length === 0) {
-                isOver = true;  //数据获取完毕
-                $('.getnews').remove();
-                $('.container').append('<p>没有更多数据了</P>')
-            } else {
-                var html = '';
-                for (var i = 0; i < retnews.length; i++) {
-                    html += '<li><img src="' + retnews[i].Url + '"><span>' + retnews[i].headline + '<span></li>';
+                $(window).on('scroll', function () {
+                        if (!isOver && isArrived) {
+                                load();
+                        }
+                });
+                function load() {
+                        if (isVisible($('.getnews'))) {
+                                isArrived = false;
+                                $.ajax({
+                                        url: '/loadNews',
+                                        type: 'get',
+                                        data: { page: pageIndex }
+                                }).done(function (ret) {
+                                        pageIndex++;
+                                        appendHtml(ret);
+                                        isArrived = true;
+                                }).fail(function () {
+                                        console.log("请求数据失败")
+
+                                })
+                        }
                 }
-                $('.news').append(html);
-            }
-        }
-        function isVisible($node) {   //判断是否出现在视窗
-            
-            var windowHeight = $(window).height(),
-                scrollTop = $(window).scrollTop(),
-                offsetTop = $node.offset().top,
-                nodeHeight = $node.height();
-            if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
+                function appendHtml(retnews) {
+                        console.log(pageIndex)
+                        if (retnews.length === 0) {
+                                isOver = true;  //数据获取完毕
+                                $('.getnews').remove();
+                                $('.container').append('<p>没有更多数据了</P>')
+                        } else {
+                                var html = '';
+                                for (var i = 0; i < retnews.length; i++) {
+                                        html += '<li><img src="' + retnews[i].Url + '"><span>' + retnews[i].headline + '<span></li>';
+                                }
+                                $('.news').append(html);
+                        }
+                }
+                function isVisible($node) {   //判断是否出现在视窗
+
+                        var windowHeight = $(window).height(),
+                                scrollTop = $(window).scrollTop(),
+                                offsetTop = $node.offset().top,
+                                nodeHeight = $node.height();
+                        if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+                                return true;
+                        } else {
+                                return false;
+                        }
+                }
+        </script>
 </body>
 
 </html>
