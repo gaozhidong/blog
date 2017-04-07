@@ -21,8 +21,8 @@ var $img = $('.img')
         function play(idx) {
             if (isAnimate) return;
             isAnimate = true;
-            $items.eq(curIdx).fadeOut(500);
-            $items.eq(idx).fadeIn(500, function () {
+            $items.eq(curIdx).fadeOut(1000);
+            $items.eq(idx).fadeIn(1000, function () {
                 isAnimate = false;
             });
             curIdx = idx;
@@ -31,7 +31,7 @@ var $img = $('.img')
         function autoPlay() {
             clock = setInterval(function () {
                 playNext()
-            }, 2000)
+            }, 3000)
         }
         function playNext() {
             play((curIdx + 1) % imgCount)

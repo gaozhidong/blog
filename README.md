@@ -55,3 +55,10 @@
 
 >  ###### 一个渐变轮播效果
 >  [index-2.html](http://htmlpreview.github.io/?https://github.com/gaozhidong/blog/blob/master/advance-task17/html/index-2.html)
+
+### advance-task18
+>   瀑布流
+    宽度固定，高度不固定
+
+>   木桶
+    总宽度一定，高度一定，图片宽度自适应。
