@@ -1,0 +1,34 @@
+*{margin: 0; padding: 0;}
+ul, li{list-style: none;}
+
+.container::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.container{
+    min-width: 1000px;
+    /*border: 1px solid red;
+    background: greenyellow;*/
+}
+
+.container>.column{
+    width: 240px;
+    margin: 5px;
+    /*background: pink;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container>.column>li{
+    margin: 10px 0;
+}
+
+.container>.column>li>img{
+    display: block;
+}
+
+#more{
+    margin: 10px;
+}
