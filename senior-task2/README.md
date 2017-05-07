@@ -1,13 +1,13 @@
-# this_原型链_继承
+## this_原型链_继承
 
-##　1. this 相关问题
+## 1. this 相关问题
 
 问题1： apply、call 、bind有什么作用，什么区别
 
 ---apply和call---: 动态设定函数执行时候的this和arguments数组 ---bind---: 预设函数的this和部分参数
 
-##　问题2: 以下代码输出什么?
-
+## 问题2: 以下代码输出什么?
+```
 	var john = { 
 	  firstName: "John" 
 	}
@@ -15,24 +15,27 @@
 	  alert(this.firstName + ": hi!")
 	}
 	john.sayHi = func
-	john.sayHi()
-##　问题3： 下面代码输出什么，为什么
+	john.sayHi() ==> 方法调用
+```
 
+## 问题3： 下面代码输出什么，为什么
+```
 	func() 
 	function func() { 
 	  alert(this)
 	}
-##　问题4：下面代码输出什么
-
+```
+## 问题4：下面代码输出什么
+```
 	document.addEventListener('click', function(e){
     console.log(this);
     setTimeout(function(){
 	        console.log(this);
 	    }, 200);
 	}, false);
-	
-##　问题5：下面代码输出什么，why
-
+```
+## 问题5：下面代码输出什么，why
+```
 	var john = { 
 	  firstName: "John" 
 	}
@@ -41,10 +44,10 @@
 	  alert( this.firstName )
 	}
 	func.call(john)
-	
-问题6： 以下代码有什么问题，如何修改
+```	
+## 问题6： 以下代码有什么问题，如何修改
 
-	
+```	
 	var module= {
 	  bind: function(){
 	    $btn.on('click', function(){
@@ -57,11 +60,36 @@
 	    console.log('饥人谷');
 	  }
 	}
-	
-2. 原型链相关问题
 
-问题7：有如下代码，解释Person、 prototype、proto、p、constructor之间的关联。
 
+    1. 构造函数调用
+
+        new S() ==>this指向创建的对象本身 {a:'a'}
+
+    2. 方法调用 method,property
+
+        var p = {
+            s:function(){
+                console.log(this)
+            }
+        }
+        p.s() ==> this指向调用方
+
+    3. apply、call的调用
+
+        p.s.call({a:2},1,2,3)
+        p.s.apply({a:2},[1,2,3])
+
+    4. 函数调用
+
+        var cache = p.s;
+        cache()==> this指向全局对象
+        p.s() ==> this指向P
+```	
+# 2. 原型链相关问题
+
+## 问题7：有如下代码，解释Person、 prototype、proto、p、constructor之间的关联。
+```
 	function Person(name){
 	    this.name = name;
 	}
@@ -70,15 +98,17 @@
 	}
 	var p = new Person("若愚")
 	p.sayName();
-问题8： 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。
+```
+## 问题8： 上例中，对对象 p可以这样调用 p.toString()。toString是哪里来的? 画出原型图?并解释什么是原型链。
 
-问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符
-
+## 问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符
+```
 	var str = 'ahbbccdeddddfg';
 	var ch = str.getMostOften();
 	console.log(ch); //d , 因为d 出现了5次
-问题10： instanceOf有什么作用？内部逻辑是如何实现的？
-
+```
+## 问题10： instanceOf有什么作用？内部逻辑是如何实现的？
+```
 A instanceof B
 
 The instanceof operator tests whether an object in its prototype chain has the prototype property of a constructor. 一个对象的原型链中是否存在 B.prototype
@@ -98,16 +128,17 @@ The instanceof operator tests whether an object in its prototype chain has the p
 番外:终极大法判断数据类型
 
 Object.prototype.toString.call('333')
-3.继承相关问题
+```
+# 3.继承相关问题
 
-问题11：继承有什么作用?
-
+## 问题11：继承有什么作用?
+```
 优化代码结构
 优化内存空间
 mdn继承文档
-
-问题12： 下面两种写法有什么区别?
-
+```
+## 问题12： 下面两种写法有什么区别?
+```
 	//方法1
 	function People(name, sex){
 	    this.name = name;
@@ -128,22 +159,23 @@ mdn继承文档
 	    console.log(this.name);
 	}
 	var p1 = new Person('若愚', 27);
-问题13： Object.create 有什么作用？兼容性如何？
-
+```
+## 问题13： Object.create 有什么作用？兼容性如何？
+```
 The Object.create() method creates a new object with the specified prototype object and properties.
 mdn object.create
 
 使用方式: Object.create(proto[, propertiesObject])
 
 兼容性: IE9 ES5
-
-问题14： hasOwnProperty有什么作用？ 如何使用？
-
+```
+## 问题14： hasOwnProperty有什么作用？ 如何使用？
+```
 The hasOwnProperty() method returns a boolean indicating whether the object has the specified property as own (not inherited) property.
 使用方式: obj.hasOwnProperty(prop) hasownproperty
-
-问题15：如下代码中call的作用是什么?
-
+```
+## 问题15：如下代码中call的作用是什么?
+```
 	function Person(name, sex){
 	    this.name = name;
 	    this.sex = sex;
@@ -152,8 +184,9 @@ The hasOwnProperty() method returns a boolean indicating whether the object has 
 	    Person.call(this, name, sex);    //这里的 call 有什么作用
 	    this.age = age;
 	}
-问题16： 补全代码，实现继承
-
+``` 
+## 问题16： 补全代码，实现继承
+```
 	function Person(name, sex){
 	    // todo ...
 	}
@@ -173,3 +206,4 @@ The hasOwnProperty() method returns a boolean indicating whether the object has 
 
 	var ruoyu = new Male('若愚', '男', 27);
 	ruoyu.printName();
+```
