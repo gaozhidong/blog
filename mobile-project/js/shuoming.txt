@@ -1,0 +1,23 @@
+js代码合并
+
+星秀场 http://192.168.13.11:88/app_h/m-show.htm
+搭配帮http://192.168.13.11:88/app_h/match.html
+设计档http://192.168.13.11:88/app_h/design.html
+公用的js文件：M_find.js
+
+搜索人物：http://192.168.13.11:88/app_h/serach.html
+热门人物：http://192.168.13.11:88/app_h/sensation.html
+热门讨论：http://192.168.13.11:88/app_h/find-discuss.html
+公用的js文件：MZ_hot.js
+
+发现首页：http://192.168.13.11:88/app_h/find-activity.html
+热门内容：http://192.168.13.11:88/app_h/hotContent.html
+发现-活动-详情：http://192.168.13.11:88/app_h/find-detail.html?id=3899
+报名页：http://192.168.13.11:88/app_h/declare.html
+浏览图片:http://192.168.13.11:88/app_h/viewPhptos.html
+M-资讯：http://192.168.13.11:88/app_h/m-massage.html
+公用的js文件 MZ_activity.js
+
+圈子：http://192.168.13.11:88/app_h/circle.html
+圈子详情：http://192.168.13.11:88/app_h/circle-detail.html
+公用的js文件：MZ_circle.js

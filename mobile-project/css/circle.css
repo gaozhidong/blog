@@ -1,0 +1,507 @@
+@charset "utf-8";
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+/*YUI 3.5.0 - reset.css*/
+html {
+  color: #000;
+  background: #FFF;
+}
+/*
+    TODO remove settings on BODY since we can't namespace it.
+    */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+/*
+        TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+    */
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before,
+q:after {
+  content: '';
+}
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset {
+  display: none;
+}
+html {
+  overflow-x: hidden;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.hidden {
+  display: none;
+}
+/*圈子*/
+header.head {
+  height: 54px;
+  background-color: #f2f2f2;
+  text-align: center;
+  color: #595959;
+  font-size: 22px;
+  line-height: 54px;
+  border-bottom: 1px solid #c8c7cc;
+}
+header.head a {
+  width: 26px;
+  height: 45px;
+  display: block;
+  text-indent: -9999em;
+  background: url("../images/small-pic.png") no-repeat -1px -127px;
+  position: absolute;
+  left: 20px;
+  top: 14px;
+}
+.circle-tab .item {
+  display: inline-block;
+  width: 48.4%;
+  margin-top: 27px;
+  text-align: center;
+}
+.circle-tab .item a{text-decoration: none;}
+.circle-tab .item .friend a {
+  color: #ff7f00;
+}
+.circle-tab .item .friend a:first-child {
+  font-size: 19px;
+  white-space: nowrap;
+  position: relative;
+  top: 10px;
+}
+.circle-tab .item .friend a:last-child {
+  font-size: 13px;
+  display: block;
+  text-indent: 5em;
+  white-space: nowrap;
+}
+.circle-tab .item .friend a:last-child:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ff7f00;
+  border-left: 10px solid transparent;
+  position: relative;
+  bottom: 13px;
+  right: -3px;
+}
+.circle-tab .item .my a {
+  color: #ff7f00;
+}
+.circle-tab .item .my a:first-child {
+  font-size: 19px;
+  white-space: nowrap;
+  position: relative;
+  top: 10px;
+}
+.circle-tab .item .my a:last-child {
+  font-size: 13px;
+  display: block;
+  text-indent: 3em;
+  white-space: nowrap;
+}
+.circle-tab .item .my a:last-child:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ff7f00;
+  border-left: 10px solid transparent;
+  position: relative;
+  bottom: 13px;
+  right: -3px;
+}
+.circle-content .item-wrap .item ul {
+  *zoom: 1;
+  overflow: hidden;
+}
+.circle-content .item-wrap .item ul:before,
+.circle-content .item-wrap .item ul:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#myDream .item ul{
+  overflow: hidden;
+}
+#myDream .item ul li:nth-child(2){
+  position: relative;
+}
+#myDream .item ul li a.delete{
+  display: block;
+  width: 23px;
+  height: 39px;
+  background: url(../images/small-pic.png) no-repeat -20px -232px;
+  position: absolute;
+  right: 15px;
+  margin-top: 10px;
+}
+.circle-content .item-wrap .item ul:after {
+  clear: both;
+}
+.circle-content .item-wrap .item ul li:first-child {
+  width: 20%;
+}
+.circle-content .item-wrap .item ul li:last-child {
+  width: 80%;
+}
+.cur {
+  border-bottom: 2px solid #ff6c00;
+}
+.circle-content .item {
+  padding: 0 4%;
+  position: relative;
+  *zoom: 1;
+  border-bottom: 15px solid #f2f2f2;
+  padding-bottom: 15px;
+  background: #fff;
+}
+.circle-content .item ul{
+  overflow: hidden;
+}
+.circle-content .item ul li:last-child{
+  position: relative;
+  padding-bottom: 50px;
+}
+.circle-content .item ul:last-child .love-comment{
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+}
+.circle-content .item .l-w,.c-w{
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+.circle-content .item .l-w sup{
+    position: absolute;
+    right: -5px;
+    top: -6px;
+}
+.circle-content .item .c-w{
+  margin-left: 30px;
+}
+.circle-content .item .c-w sup{
+    position: absolute;
+    right: -5px;
+    top: -6px;
+}
+.circle-content {
+  background: #ededed;
+}
+.circle-content .item:before,
+.circle-content .item:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.circle-content .item:after {
+  clear: both;
+}
+.circle-content .item a.author-pic {
+  display: inline-block;
+  margin-top: 18px;
+  color: #595959;
+  max-width: 65px;
+}
+.circle-content .item a.author-pic img{border-radius: 50%;}
+.circle-content .item .issue-wrap {
+  display: inline-block;
+  margin-left: 5px;
+}
+.circle-content .item .issue-wrap .author-name {
+  font-size: 14px;
+  position: relative;
+  top: 5px;
+}
+.circle-content .item .issue-wrap .issue-time {
+  color: #999999;
+  font-size: 15px;
+}
+.circle-content .item .issue-wrap  .time{
+  white-space: nowrap;
+  color: #999;
+}
+.circle-content .item .issue-wrap .title{
+  position: relative;
+  bottom: 5px;
+  font-size: 14px;
+}
+.circle-content .item .issue-wrap .time:before {
+  content: url(../images/find-issue-time.png);
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  right: 0px;
+}
+.circle-content .item h2.title {
+  color: #666;
+  font-size: 18px;
+  margin: 0 5px;
+  ext-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.circle-content .item a.issue-pic {
+  display: block;
+}
+.circle-content .item .love-comment a.common {
+  display: inline-block;
+  width: 33px;
+  height: 30px;
+}
+.circle-content .item .love-comment a.love {
+  background: url(../images/small-pic.png) no-repeat;
+  background-position: -43px 0px;
+  position: relative;
+  top: -5px;
+}
+.love-after{
+background: url(../images/find_after.png) no-repeat;
+display: inline-block;
+background-size: 25px 22px;
+}
+.circle-content .item .love-comment a.comment {
+  background: url(../images/small-pic.png) no-repeat;
+  background-position: -10px -6px;
+}
+.circle-content .item .love-comment .c-w:before {
+  content: " ";
+  width: 2px;
+  height: 25px;
+  background-color: #ccc;
+  display: inline-block;
+  position: relative;
+  left: -17px;
+  top: -5px;
+}
+#commentLayer{width: 100%;height: 40px;border-top: 1px solid #ccc;resize: none;line-height: 40px;box-sizing:border-box;position: fixed;bottom: 10px;background-color: #fff;}
+#commentLayer textarea{border: 1px solid #ccc;margin-left: 20px;background-color: #f0f0f0;text-indent: 1em;width: 80%;padding-top: 5px;margin-top: 5px;margin-bottom: 5px;}
+#commentLayer button{width: 10%;height: 35px;border: 1px solid #ccc;border-radius: 5px;position: relative;top: 3px;left: 5px;min-width: 55px;}
+@media only screen and (max-width: 500px) {
+  .issue-wrap h2 {
+    font-size: 14px;
+  }
+}
+/* iPhone 4*/
+@media screen and (max-device-width: 320px) {
+section.find-dialog {
+  text-align: center;
+  width: 80%;
+  height: 37%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  margin-left: -40%;
+  top: 13%;
+  border: 1px solid #ff7f00;
+  border-radius: 5px;
+}
+section.find-dialog h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-top: 5.5%;
+}
+}
+/* 兼容iphone 6 */
+@media (device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  .circle-tab .item {
+    width: 48.4%;
+  }
+}
+/*评论部分*/
+.find-activity-top {
+  height: 54px;
+  background-color: #f2f2f2;
+  text-align: center;
+  color: #595959;
+  font-size: 18px;
+  line-height: 54px;
+  border-bottom: 1px solid #c8c7cc;
+}
+.find-activity-top a.arrow {
+  width: 26px;
+  height: 45px;
+  display: block;
+  text-indent: -9999em;
+  background: url("../images/small-pic.png") no-repeat -1px -127px;
+  position: absolute;
+  left: 20px;
+  top: 14px;
+}
+.find-message {
+  color: #3b3b3b;
+  font-size: 1.7em;
+  margin: 21px 10.9% 32px 4.3%;
+}
+.find-message a {
+  font-size: 14px;
+  color: #999;
+}
+ul.find-user-massage {
+  padding-left: 4.3%;
+}
+ul.find-user-massage li {
+  border-bottom: 1px solid #c8c7cc;
+  position: relative;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+ul.find-user-massage li img.user-icon {
+  margin-right: 10px;
+}
+ul.find-user-massage li span.user {
+  display: block;
+  color: #ff6c00;
+  font-size: 17px;
+}
+ul.find-user-massage li span.issue-time {
+  color: #999999;
+  font-size: 14px;
+  display: inline-block;
+}
+ul.find-user-massage li span.issue-time:before {
+  content: url(../images/find-issue-time.png);
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+ul.find-user-massage li span.replay {
+  display: block;
+  color: #666;
+  font-size: 17px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ul.find-user-massage span.comment {
+  position: absolute;
+  right: 5%;
+  top: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+.love-after {
+  background: url(../images/love-active.png) no-repeat;
+  display: inline-block;
+  background-size: 25px 22px;
+  padding-left: 6px;
+  width: 25px;
+  height: 22px;
+}
+#mask{
+  background-color: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/*弹出框*/
+#layer{font-size: 12px;font-family: Helvetica, arial, sans-serif;color: #333;}
+#layer .main{overflow: hidden;width: 30%;background-color: #fff;position: fixed;left: 50%;top: 45%;min-width: 150px;max-height: 260px;border-radius: 5px;margin-left: -75px; z-index: 9999}
+#layer .main .tips{height: 22px;padding: 20px 0;text-align: center;border-bottom: 1px solid #ccc;line-height: 7px;}
+#layer .main a{display: inline-block;width: 50%;height: 39px;line-height: 39px;text-align: center;color: #333;}
+#layer .main a.cancel{border-right: 1px solid #ccc;}
+.laymshade{position: fixed;left: 0;top: 0;bottom:0;width: 100%;background-color: #000; opacity: 0.4; z-index: 999;}

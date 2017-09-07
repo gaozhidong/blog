@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+<title>个人中心-积分中心</title>
+</head>
+
+<body style=" background: #fff; ">
+<div class="person_top">
+	<a class="person_top_ico" href="user.html"></a>
+    数据中心
+</div>
+<div class="integral_nav">
+	<ul>
+    	<li><a href="javascript:;">我的等级</a></li>
+        <li><a href="javascript:;">我的优惠劵</a></li>
+        <li><a href="javascript:;">兑换中心</a></li>
+    </ul>
+      <div class="arrow-down"></div> 
+</div>
+
+<div class="integral_wrap">
+<div class="integralBox click">
+	<ul class="interList">
+    <script type="text/template" id="integralTemp">
+    	<li id="camp">所在帮派：<span class="icolor"></span></li>	
+        <li>等级：Lv<%=Level%></li>
+        <li>经验值：<%=Exp%></li>
+        <li>M豆余额：<span id="mb"><%=Mb%></span> (<a href="javascript:;" class="icolor" id="go">兑换</a>)</li>
+    </script>
+    </ul>
+</div>
+
+<div class="couponBox hidden click" data-page="1" data-loading="0">
+<script type="text/template" id="couponTemp">
+	<div class="couoponList"> 
+        <div class="Mleft" id="<%=Id%>">
+            <span><%=StartTime%></span>-<span><%=EndTime%></span>
+            <div class="user"><span>全场通用</span><em><%=Des%></em></div>
+        </div>
+        <div class="Mright">
+        	<em>￥</em>
+            <span><%=Amount%></span>
+        </div> 
+    </div>
+ </script>
+
+     <div class="nocoupon hidden">
+        <p>当前没有优惠券</p>    
+        <a href="javascript:;" class="p_btn_bottom" id="goExchange">
+            去兑换
+        </a>
+    </div>
+</div>
+<div class="MbeanBox hidden click">
+	<div class="beanNum">
+    	<p>可用余额：<span></span>	M豆</p>
+    </div>
+    <div class="beanWrap">
+     <script type="text/template" id="changeTemp">
+        <div class="exchange">      
+        	<div class="exLeft">
+            	<p>全场通用</p>
+                <em><%=Des%></em>
+            	<b><%=StartTime%>-<%=EndTime%></b> 
+                <div class="price">
+                	<em>￥</em>
+                    <span><%=Amount%></span>
+                </div>
+            </div>
+            <div class="exRight"  id="<%=Id%>">
+            	<div class="border">
+                	<p class="msize"><span><%=Quantity%></span>M豆</p>
+                    <p class="csize">点击兑换</p>
+                </div>
+            </div>       
+        </div>
+    </script>
+    </div>
+</div>
+</div>
+<!--弹出框-->
+	<div id="dialog" class="hidden">
+	   <div class="cover"></div>
+	   <section class="find-dialog">
+	    <hgroup></hgroup>
+	    <footer>确定</footer>
+	   </section>
+  </div>
+<!--ends-->
+</body>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/integral.js"></script>
+</html>

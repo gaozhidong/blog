@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+.p_login_wrap{
+	  background: url(../img/login_bj_02.png) no-repeat;
+ 	 background-size: 100% 100%;
+ 	 position: absolute;
+  	top: 0;
+  	right: 0;
+ 	bottom: 0;
+  	left: 0;
+}
+.p_login_wrap a{
+	display:block;
+}
+.p_login_nav{
+	background:url(../img/login_03.png);
+	width:100%;
+	width:125px;
+	height:75px;
+	 margin: 120px auto 150px auto;
+	background-size:100%;
+}
+
+
+
+/*登陆后*/
+.p_nav_delete{
+  background:url(../images/personal_ico.png) -281px -50px no-repeat;
+	background-size:306px 123px;
+	width:23px;
+	height:23px;
+	display:inline-block;
+	right:15px;
+	top:15px;
+	margin: 16px 12px;
+}
+.p_login_info {
+  padding-top: 130px;
+  width:260px;
+  margin:0 auto;
+}
+.p_login_info .phone:before{
+	background:url(../images/personal_ico.png) 0px -96px no-repeat;
+	background-size:306px 123px;
+	width:20px;
+	height:30px;
+	display:inline-block;
+	content:"";
+	position:absolute;
+}
+	
+hr{
+	color:#fff;
+}
+.p_login_info .phone
+{
+    position:relative;
+}
+.p_login_info  .pwd
+{
+    position:relative;
+}
+.p_login_info .p_item input {
+  border: none;
+  font-size: 1.6em;
+  line-height: 30px;
+  background:transparent;
+  color:#fff;
+  margin-left:32px;
+}
+.p_login_info .p_item .p_icon_close {
+     width: 20%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+}
+.p_login_info .p_item .p_icon_close img{
+	width: 20px;
+    height: 20px;
+    margin: 5px auto 0px;
+}
+.p_login_info .pwd:before{
+  background:url(../images/personal_ico.png) -253px 4px no-repeat;
+	background-size:306px 123px;
+	width:18px;
+	height:30px;
+	display:inline-block;
+	content:"";
+	position:absolute;
+}
+
+.p_forgetpwd{
+	display:block;
+	color:#fff;
+	float:right;
+	margin-top:30px;
+	font-size:1.4em;
+	line-height:15px;
+	border-radius:5px;
+	padding:4px 15px;
+	background:#a69790;
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+	
+}
+.p_btn_transparent a{
+	color:#fff;
+	text-align:center;
+}
+a.after{
+	margin-top:80px;
+}
+
+.hidden{
+	display: none;
+}
+
+
+
+
+@media screen  and (max-width: 320px)  {
+	.p_login_info {
+		padding-top:62px;
+		width:240px;
+	}
+}

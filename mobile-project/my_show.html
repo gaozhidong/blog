@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+<script type="text/javascript" src="js/takePhotoPlugin.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/p_show.js"></script>
+
+
+<title>个人中心-我的星秀场</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico" href="user.html"></a>
+    我的星秀场
+</div>
+<div class="p_show hidden" id="Myshow">
+	<div class="show_box">
+		<script type="text/template" id="showTemp">
+		<h2></h2>
+	        <div class="p_vote">
+	                <div class="vote_wape">
+	                <p>已有<a class="p_vote_num" href="javascript:;"><%=ShwoCount%></a>人投票</p>
+	                </div>
+	        </div>
+	        <ul>
+	            <li>年龄：<%=Age%></li>
+	            <li>身高：<%=Height%></li>
+	            <li>体重：<%=Weight%></li>
+	            <li>胸围：<%=Chest%></li>
+	            <li>腰围：<%=Waist%></li>
+	            <li>臀围：<%=Hip%></li>
+	        </ul>
+	        <a class="p_show_pic" href="javascript:;">
+	            <div class="picLsit">
+	                <div class="updatePic">
+	                </div>
+	            </div>
+	        </a>
+	    </script>
+	</div>
+
+    <div class="show_tags">
+                <a  href="javascript:;" class="show_add"  id="datepicker1">
+                    添加
+                </a>
+                <a  href="javascript:;" class="show_edit">
+                    设为封面
+                </a>
+    
+    </div>
+</div>
+
+
+<div class="noShow hidden" id="Showhide">
+	<p>很抱歉，您还没参加该活动！</p>
+	<a href="m-show.html" class="p_btn_bottom">报名星秀场</a>
+</div>
+</body>
+
+
+</html>

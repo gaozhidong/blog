@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/find.css"  rel="stylesheet" />
+		<link href="css/common.css"  rel="stylesheet" />
+		<link href="css/index.css"  rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/flexslider.css">
+		<title>发现活动</title>
+	</head>
+	<body style="font-size:100%;background:#fff;" data-type="find-index">
+		<div class="find-activity-top">发现</div>
+		<div class="match-search clearfix" style="border-bottom:1px solid #ccc;" id="serchField">
+			<input placeholder="请输入搜索人物的名字" class="searchBox fl" type="text">
+			<a href="javascript:;" class="searching fl">搜索</a>
+		</div>
+		<div class="find-activity-tab flexslider" style="margin-top:95px !important; min-height:114px;">
+			<ul class="tab slides" data-type="True" id="tab">
+				<script type="text/template" id='picScrollTemp'>
+					<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+					<li><a href="find-detail.html?id=<%=Id%>"><img src="<%=ImgUrl%>" width="100%"/></a></li>
+				</script>
+			</ul>
+		</div>
+		<div class="find-activity" id="camps">
+			<ul class="slides">
+				<li>
+					<section class="show fl"><a href="m-show.html"><span class="camp camp-1"></span><p class="name">星秀场</p><p class="note">SHOW评选</p></a></section>
+					<section class="show fl"><a href="match.html"><span class="camp camp-2"></span><p class="name">搭配帮</p><p class="note">着装指南</p></a></section>
+					<section class="show fl"><a href="design.html"><span class="camp camp-3"></span><p class="name">设计党</p><p class="note">原创作品</p></a></section>
+				</li>
+				<li>
+					<section class="show fl"><a href="sculpt.html"><span class="camp camp-4"></span><p class="name">造型派</p><p class="note">美妆造型</p></a></section>
+					<section class="show fl"><a href="photo_camp.html"><span class="camp camp-5"></span><p class="name">摄影会</p><p class="note">摄影作品</p></a></section>
+					<section class="show fl"><a href="famous.html"><span class="camp camp-6"></span><p class="name">名人堂</p><p class="note">知名人士</p></a></section>
+				</li>
+			</ul>
+		</div>
+		<div class="find-blank">
+			<a href="javascript:"></a>
+		</div>
+		<div class="find-content">
+			<ul>
+				<li>
+					<a href="sensation.html"><img src="images/find-hot-person.png" class="fl"><p class="title">热门人物<p>FIGURE</p><span class="arrow"></span></a>
+				</li>
+				<li>
+					<a href="hot-activity.html"><img src="images/find-hot-activity.png" class="fl"><p class="title">热门活动</p><p>ACTIVITY</p><span class="arrow"></span></a>
+				</li>
+				<li>
+					<a href="hot-photo.html"><img src="images/find-hot-album.png" class="fl"><p class="title">热门标签相册</p><p>LABEL ALBUM</p><span class="arrow"></span></a>
+				</li>
+				<li>
+					<a href="hot-content.html"><img src="images/find-hot-content.png" class="fl"><p class="title">热门内容</p><p>CONTENT</p><span class="arrow"></span></a>
+				</li>
+			</ul>
+		</div>
+		<div id="dialog" class="hidden">
+			<script type='text/template' id='signTemplate'>	
+				<section class='find-dialog'>
+					<h2>签到成功！</h2>
+					<div class="signbox">		
+						<p class='sign-ranking'>今天签到第<span><%=Ranking%></span>名</p>
+						<p class='experience-add'>经验+<span><%=SignInExp%></span></p>
+						<p class='experience-value'>经验值<span><%=UserExp%></span>/<span><%=LevelExp%></span><span class='grade'><%=UserLevel%>级</span></p>
+					</div>
+					<footer>确定</footer>
+				</section>
+			</script>
+		</div>
+		<div class="foot_bar" id="bottomMenu"></div>
+		<div id="mask" class="hidden"></div>
+
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/ejs_production.js"></script>		
+		<script src="js/config.js"></script>  
+		<script src="js/foot.js"></script>
+		<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="js/layer.m.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/MZ_find.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

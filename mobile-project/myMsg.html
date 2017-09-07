@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+<title>我的消息</title>
+</head>
+
+<body>
+	<div class="person_top">
+		<a class="person_top_ico" href="user.html"></a>
+	    我的消息
+	</div>
+	<div class="like_nav" id="slideMsg">
+		<div class="like_nav_box">
+	    	<a href="javascript:;"  class="like_style" data-id="0">私聊<span class="msgico">●</span></a>
+	        <a href="javascript:;" data-id="1">回复<span class="msgico">●</span></a>
+	        <a href="javascript:;" data-id="2">赞<span class="msgico">●</span></a>
+	    </div>
+	</div>
+
+	<div class="myMsgBox">
+		<!-- 私聊部分开始 -->
+		<div class="slideBox" id="Chat" style="display:block;">
+			<ul>
+				<li>
+					<a href="dialog.html" class="chatWrap">
+						<div class="chatobj">
+							<img src="images/user.jpg">
+						</div>
+						<div class="chatinfo">
+							<h4>司空见惯</h4>
+							<p class="time"><span>AM</span>12:12</p>
+						</div>
+						<div class="bagnum">
+							2
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 私聊部分结束 -->
+
+		<!-- 回复部分开始 -->
+		<div class="slideBox" id="Replay">
+			<ul>
+				<li>
+					<div class="f-top">
+						<div class="f-userimg">
+							<a href="#"><img src="images/user.jpg"></a>
+						</div>
+						<div class="f-userinfo">
+							<div class="f-nick">
+								<a href="#">司空见惯</a>
+							</div>
+							<div class="f-info-detail">
+								<span class="f-time">08:20</span>回复了我
+							</div>
+						</div>
+					</div>
+					<h2 class="f-content">加油</h2>
+					<div class="f-under">
+						<div class="f-imgtxt">
+							<div class="img-box">
+								<a href="#"><img src="images/user.jpg"></a>
+							</div>
+							<a class="txt-box" href="#">
+								<h4>这是标题</h4>
+								<p>哈哈哈哈哈</p>
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 回复部分结束 -->
+		<div class="slideBox" id="Zan">
+			<ul>
+				<li>
+					<div class="f-top">
+						<div class="f-userimg">
+							<a href="#"><img src="images/user.jpg"></a>
+						</div>
+						<div class="f-userinfo">
+							<div class="f-nick">
+								<a href="#">司空见惯</a>
+							</div>
+							<div class="replaywrap">
+								<a href="#">回复</a>
+							</div>
+							<div class="f-info-detail">
+								<span class="f-time">08:20</span>回复了我
+							</div>
+						</div>
+					</div>
+					<div class="f-content"><h2>赞了这篇资讯</h2><span class="zanico"><img src="images/zan_03.png"></span></div>
+					<div class="f-under">
+						<div class="f-imgtxt">
+							<div class="img-box">
+								<a href="#"><img src="images/user.jpg"></a>
+							</div>
+							<a class="txt-box" href="#">
+								<h4>这是标题</h4>
+								<p>哈哈哈哈哈</p>
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 赞部分开始 -->
+		<div class="slideBox" id="Zan">
+			3
+		</div>
+		<!-- 赞部分结束 -->
+	</div>
+</body>
+	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/layer.m.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script src="js/ejs_production.js"></script>  
+	<script src="js/myMsg.js"></script>
+</html>

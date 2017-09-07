@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link href="css/find.css"  rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+        <script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+		<title>发现-评论</title>
+	</head>
+	<body>
+		<div class="find-activity-top">评论</div>
+		<div class="find-message">
+			用户留言<a href="javascript:;">
+				(<span class="num">28</span>条)
+			</a>
+		</div>
+		<ul class="find-user-massage" id="userComment">
+			<script type="text/template" id="userCommentTemp">
+				<li>
+					<img class="user-icon fl" src="<%=portrait%>"/>
+					<span class="user"><%=name%></span>
+					<span class="issue-time">今天<span class="time"><%=time%></span></span>
+					<span class="replay"><span class="content">回复<a href="javascript:;"><%=replyTo%></a><%=reply%></span>
+					</span>
+					<span class="comment"></span>
+				</li>
+			</script>
+		</ul>
+		<script type="text/javascript">
+			var userCommentHTML="";
+		    var userCommentTemp=document.getElementById("userCommentTemp").innerHTML;
+		     $.ajax({
+				url:"data/design.json",
+				type:"GET",
+				dataType:"json",
+				success: function(res){
+					var data=res.data;
+					var template = new EJS({"text": userCommentTemp});
+					for(var i=0;i<data.length;i++){
+						userCommentHTML += template.render(data[i]);
+					}
+					$("#userComment").html(userCommentHTML);
+					//////////////////////////////////////////////评论弹框
+				/*	var comment=$("[data-type=comment]");
+					comment.on("click",showComment);
+					function showComment(){
+						var currentLayerIndex = layer.open({
+						    type: 1,
+						    content: "<div id='commentLayer'><textarea value='说点什么吧~''></textarea><button id='publish'>发表</button></div>",
+						    style: 'width:100%; height:'+ document.documentElement.clientHeight +'px;'
+						});
+						var publishBtn=document.getElementById("publish");
+						publishBtn.addEventListener('click', function(){
+						    layer.close(currentLayerIndex); //pagei为你调用layer时返回的索引
+						})
+					}*/
+				   /////////////////////////////////////////////////
+				},
+				error:function(){
+					console.log("fail");
+				}
+				});
+		</script>
+	</body>
+</html>

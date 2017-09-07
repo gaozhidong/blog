@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/match.css">
+		<title>搭配推荐</title>
+	</head>
+	<body>
+		<div class="recommend-top">
+			<a href="match.html" class="arrow"></a>搭配推荐
+		</div>
+		<ul class="re-title clearfix">
+			<li class="re-active fl"><a href="javascript:;" class="recommend">推荐</a></li>
+			<li class="fl"><a href="javascript:;" class="latest">最近</a></li>
+		</ul>
+		<ul class="re-content clearfix" id="recommend">
+			<script type="text/template" id="recommentTemp">
+				<li class="fl">
+					<div class="wrap">
+						<img src="<%=work%>" class="work">
+						<div class="designer"><img src="<%=portrait%>"><span><%=author%></span></div>
+					</div>
+					<p class="describe"><%=introduction%></p>
+					<span class="love"><%=love%><a href="javascript:;"></a></span>
+			    </li>
+			</script>
+		</ul>
+		<ul class="re-content clearfix" id="latest">
+			<script type="text/template" id="latestTemp">
+				<li class="fl">
+					<div class="wrap">
+						<img src="<%=work%>" class="work">
+						<div class="designer"><img src="<%=portrait%>"><span><%=author%></span></div>
+					</div>
+					<p class="describe"><%=introduction%></p>
+					<span class="love"><%=love%><a href="javascript:;"></a></span>
+			    </li>
+			</script>
+		</ul>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script type="text/javascript" src="js/matchRecommend.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

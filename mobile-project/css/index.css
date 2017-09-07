@@ -1,0 +1,145 @@
+@charset "utf-8";
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+.top {
+  background-color: #ff7f00;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  font-size: 1.8em;
+  text-align: center;
+  color: #fff;
+}
+.index {
+  background-color: #ededed;
+  padding-bottom: 50px;
+}
+.index li {
+  background-color: #ffffff;
+  border-bottom: #DADADC 1px solid;
+  width: 100%;
+  margin-top: 20px;
+}
+.index .u_img {
+  display: block;
+  width: 100%;
+}
+.index .u_info {
+  height: 30px;
+  margin: 10px;
+}
+.index .u_info .u_head {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  float: left;
+  display: inline;
+}
+.index .u_info .u_head img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.index .u_info .u_name {
+  display: inline;
+}
+.index .u_info .u_name h2 {
+  color: #3B3B3B;
+  height: 20px;
+  line-height: 20px;
+  font-size: 1.4em;
+}
+.index .u_info .u_name p {
+  color: #999;
+  height: 15px;
+  line-height: 15px;
+  font-size: 1.2em;
+}
+.index .u_info .u_ico {
+  float: right;
+  display: inline;
+  margin-top: -5px;
+}
+.index .u_info .u_ico .u_like {
+  background: url("../images/ico_like.png") 0 0 no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+  display: inline;
+  color: #999;
+  margin: 0 10px;
+  position: relative;
+  padding-right: 34px;
+  cursor: pointer;
+}
+.index .u_info .u_ico .u_like_red {
+  background: url("../images/love-active.png") 0 0 no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+  display: inline;
+  color: #999;
+  margin: 0 10px;
+  position: relative;
+  padding-right: 34px;
+  cursor: pointer;
+  background-size: 15px;
+}
+.index .u_info .u_ico .u_like em {
+  position: absolute;
+  right: 0px;
+  top: -13px;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+.index .u_info .u_ico .u_like_red em {
+  position: absolute;
+  right: 0px;
+  top: -13px;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+.index .u_info .u_ico .u_share {
+  background: url("../images/ico_link.png") 0 0 no-repeat;
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  display: inline;
+  margin: -4px 5px;
+}
+.index .tags {
+  line-height: 35px;
+  margin: 10px;
+  font-size: 1.2em;
+  padding-top: 10px;
+}
+.index .tags a{
+  display: inline;
+  padding: 5px 10px;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #ededed;
+  margin: 0 5px;
+}
+#ListScroll{
+  margin-top: 20px;
+}
+#mask{
+  background-color: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

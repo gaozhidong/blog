@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/circle.css"  rel="stylesheet" />
+		<style type="text/css">
+			.layermmain{z-index: 99999}
+		</style>
+		<title>圈子</title>
+	</head>
+	<body data-fn="circle">
+		<div id="circle-page">
+			<header class="head">圈子</header>
+		<div class="circle-tab">
+			<a href="javascript:;" class="item cur" data-index="0"><img src="images/circle_friend.jpg" width="100%" style="display:inline-block;" /></a>
+			<a href="javascript:;" class="item" data-index="1"><img src="images/circle_my.jpg" width="100%" style="display:inline-block;"/></a>
+		</div>
+		<div class="circle-content">
+			<div class="swiper-slide">
+				<div id="friendDream">
+					<div class="item-wrap">
+						<script id="dreamTemp" type="text/template"> 
+							<div class="item" data-pid=<%=Pid%>>
+								<ul>
+									<% 
+										var reurl=window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); 
+									%>
+									<li>
+										<a href="public_home.html?id=<%=Uid%>" class="author-pic">
+											<%if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg' ||UserInfo.Image == null) {%>
+												<img src="images/user.jpg" width="55px">
+											<% } %>
+											<%if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+												<img src="<%=UserInfo.Image%>" width="55px">
+											<% } %>
+										</a>
+										<div class="issue-wrap">
+											<div class="author-name"><%=UserInfo.UserNick%></div>
+											<span class="time"><%=Time%></span>
+											<div class="title"><%=Declare%></div>
+										</div>
+									</li>
+									<li>
+										<% var reurl=window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+										<a href="viewPhptos.html?pid=<%=Pid%>" class="issue-pic">
+											<img src="<%=Photo%>" width="100%"/>
+										</a>
+										<div class="love-comment fr">
+											<span class="l-w">
+												<a href="javascript:;" class="love common" data-type="love"></a>
+												<sup><%=Like_Count%></sup>
+											</span>
+											<span class="c-w">
+												<% var reurl = window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+												<a href="viewPhptos.html?pid=<%=Pid%>" class="comment common" data-type="comment"></a>
+												<sup><%=Comment_Count%></sup>
+											</span>
+											
+										</div>
+										<input type="hidden" value=<%=Pid%> data-type="pictureId">
+									</li>
+								</ul>
+							</div>
+						</div>
+					</script>
+				</div>
+			</div>
+		</div>
+			<div class="swiper-slide hidden">
+				<div id="myDream">
+						<div class="item-wrap">
+						<script id="myDreamTemp" type="text/template"> 
+							<div class="item" data-isDelete=<%=IsAvtar%> data-login=<%=IsLoginer%>>
+								<ul>
+									<% var reurl=window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+									<li>
+										<a href="public_home.html?id=<%=Uid%>" class="author-pic">
+										<%if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg' ||UserInfo.Image == null) {%>
+											<img src="images/user.jpg" width="55px">
+										<% } %>
+										<%if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+											<img src="<%=UserInfo.Image%>" width="55px">
+										<% } %>
+										</a>
+										<div class="issue-wrap">
+											<h2 class="author-name"><%=UserInfo.UserNick%></h2>
+											<span class="time"><%=Time%></span>
+											<h2 class="title"><%=Declare%></h2>
+										</div>
+									</li>
+									<li>
+										<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+										<a href="viewPhptos.html?pid=<%=Pid%>" class="issue-pic">
+											<img src="<%=Photo%>" width="100%"/>
+										</a>
+										<a href="javascript:;" class="delete"></a>
+										<input value="<%=Pid%>" type="hidden" data-pid="pictureId">
+									</li>
+								</ul>
+							</div>
+						</script>
+					</div>
+				  </div>
+			</div>
+		</div>
+		</div>
+		<!--comment template-->
+			<div id='comment-page' class="hidden">
+				<div class='find-message'>
+					用户留言<a href='javascript:;'>
+						(<span class='num'>20</span>条)
+					</a>
+				</div>
+				<ul class='find-user-massage' id='userComment'>
+					<script type='text/template' id='userCommentTemp'>
+						<li data-commentID=<%=Cid%> data-sex=<%=UserInfo.Sex%> data-UserID=<%=UserInfo.Uid%> data-commentID=<%=Cid%>>
+							<% var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+							<a href="public_home.html?id=<%=UserInfo.Uid%>"><img class='user-icon fl' src='<%=UserInfo.Image%>' width="55px"/></a>
+							<span class='user'><%=UserInfo.UserNick%></span>
+							<span class='issue-time'><span class='time'><%=Time%></span></span>
+							<span class='replay'><span class='content'>回复<a href='javascript:;'></a><%=Comment%></span></span>
+						</li>
+					</script>
+				</ul>
+			</div>
+			<!--ends-->
+		
+		<!--发表评论-->
+		<div id="commentLayer" class="hidden">
+			<textarea value="说点什么吧~" placeholder="说点什么吧~"></textarea>
+			<button>发表</button>
+		</div>
+		<div id="dialog" class="hidden">
+		<script type='text/template' id='signTemplate'>	
+			<section class='find-dialog'>
+				<h2>签到成功！</h2>
+				<div class="signbox">		
+					<p class='sign-ranking'>今天签到第<span><%=Ranking%></span>名</p>
+					<p class='experience-add'>经验+<span><%=SignInExp%></span></p>
+					<p class='experience-value'>经验值<span><%=UserExp%></span>/<span><%=LevelExp%></span><span class='grade'><%=UserLevel%>级</span></p>
+				</div>
+				<footer>确定</footer>
+			</section>
+		</script>
+	</div>
+		<div class="foot_bar" id="bottomMenu"></div>
+		<div id="mask" class="hidden"></div>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/ejs_production.js"></script>		
+		<script src="js/config.js"></script>  
+		<script src="js/foot.js"></script>	
+		<script type="text/javascript" src="js/tools/swiper.min.js"></script>
+		<script type="text/javascript" src='js/jquery.cookie.js'></script>	
+		<script src="js/layer.m.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/public.js"></script>	
+		<script type="text/javascript" src="js/MZ_circle.js"></script>		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link href="css/find.css"  rel="stylesheet" />
+		<title>发现-活动-详情</title>
+	</head>
+	<body data-fn="activityDetail">
+		<header class="find-detail" data-fn="hide"><a href="my_like.html" class="arrow"> &gt; </a>活动-详情<a href="javascript:;" class="share"></a></header>
+		<div id="scenery" data-fn="hide"></div>
+		<div class="find-join-now" data-fn="hide" id="joinActivity">
+			<a href="javascript:;" class="btn">马上参加</a>
+			<span class="join-num">225人</span><span class="txt">已参加活动</span>
+		</div>
+		<ul class="find-scence-issue" id="issueWork" data-fn="hide"></ul>
+		<!--发表评论-->
+		<div id="commentLayer" class="hidden">
+			<textarea value="" placeholder="说点什么吧~"></textarea>
+			<button>发表</button>
+		</div>
+		<!--ends-->
+		<!--悬浮框-->
+		<div id="suspensionBox">
+			<a href="javascript:;" class="like"></a>
+			<span class="like">喜欢</span>
+			<a href="javascript:;" class="comment"></a>
+			<span class="comment">评论(0)</span>
+			<button>参加活动</button>
+		</div>
+		<!--ends-->
+		<!--评论-->
+		<div id='comment-page' class='hidden'>
+			<div class='find-activity-top'>评论<a href='find-detail.html' class='arrow'></a></div>
+			<div class='find-message'>
+				用户留言<a href='javascript:;'>
+					(<span class='num'>28</span>条)
+				</a>
+			</div>
+			<ul class='find-user-massage' id='userComment'></ul>
+		</div>
+		<div id="littleActivity" class="hidden">
+			<a href="javascript:;" class="camera fl"></a>
+			<a href="javascript:;" class="photos fl"></a>
+			<a href="javascript:;" class="close"></a>
+		</div>
+		<div id="mask" class="hidden"></div>
+		<!--comment ends-->
+		<!--template render-->
+		<script type="text/template" id="sceneryTemp">
+			<header class="find-best-scenery" data-fn="hide">
+				<div class="title" ><%=title%></div>
+				<div class="time">
+					活动时间：<span class="from"><%=date%></span>
+				</div>
+				<div class="find-best-people-love">
+						<span class="num"><%=mz_like%></span>人喜欢
+					</div>
+					<div class="find-best-people-share">
+						<span class="num">15</span>人已分享
+					</div>
+			</header>
+				<ul class="find-scenery">
+					<li><a href="javascript:;"><img src="<%=img%>" width="100%"></a></li>
+				</ul>
+				<ul class="find-tag">
+					<li class="fl tag"><a href="javascript:;">标签：</a></li>
+					<% for(var i=0; i<tags.length; i++) {%>
+						<li class="fl item"><a href="photo_tag.html?tag=<%=tags[i]%>"><%=tags[i]%></a></li>
+					<% } %>
+				</ul>
+				<div class="find-description">
+					<p class="title">简介：</p>
+					<div class="content"><%=desc%></div>
+					<div class="more hidden"><%=conn%></div>
+					<a href="javascript:;" data-type="more">展开更多
+					<b class="up"></b>
+					<b class="down hidden"></b>
+				</a>
+			</div>
+			<input type="hidden" value="<%=htags%>" id="hideTags"/>
+			<input type="hidden" value="<%=id%>" id="postID"/>
+		</script>
+		<script type="text/template" id="issueWorkTemp">
+			<li>
+				<div class="find-isuue-black"></div>
+
+					<div class="wrap">
+						<a href="http://192.168.13.5:88/public_home.html" class="author-pic">
+						<img src="<%=UserInfo.Image%>" width="50px"/>
+					</a>
+					<div class="issue-wrap">
+						<h2 class="author-name"><%=UserInfo.UserNick%></h2>
+						<span class="issue-time"><span class="time"><%=Time%></span></span>
+					</div>
+
+				<a href="viewPhptos.html?pid=<%=Pid%>" class="work"><img src="<%=Photo%>" width="100%" data-pid="<%=Pid%>" data-type="pic"></a>
+				<p class="introduction"><%=Declare%></p>
+				<div class="love-comment-num">
+					<a href="javascript:;" class="love-num fr" data-fn="love"><sup><%=Like_Count%></sup></a>
+					<a href="viewPhptos.html?pid=<%=Pid%>" class="comment-num fr" data-fn="comment"><sup><%=Comment_Count%></sup></a>
+				</div>
+				</div>
+				<input type="hidden" value="<%=Pid%>" id="pictureId"/>
+			</li>	
+		</script>
+		<script type='text/template' id='userCommentTemp'>
+			<li>
+				<img class='user-icon fl' src="" data-uid="<%=uid%>"/>
+				<span class='user'><%=uname%></span>
+				<span class='issue-time'><span class='time'><%=time%></span></span>
+				<p class='replay'><%=content%></p>
+				<input type="hidden" value="<%=uid%>"/>
+			</li>
+		</script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+		<script type="text/javascript" src="js/takePhotoPlugin.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/MZ_activity.js"></script>
+	</body>
+</html>

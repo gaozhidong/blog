@@ -1,0 +1,180 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/view.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/find.css"> -->
+    <!--新的的view-new.css开始-->
+    <link rel="stylesheet" type="text/css" href="css/N-view(test).css">
+    <!--新的的view-new.css结束-->
+    <title>浏览照片</title>
+    <!-- <link href="http://mzone.moonbasa.com/js/need/layer.css" type="text/css" rel="styleSheet" id="layermcss"> -->
+</head>
+
+<body data-fn = "view" data-type = "T_view">
+    <div class="app hidden">
+        <div id="global"></div>
+        <div id="img" class=""><img id="imgs" src="images/browser.jpg"></div>
+    </div>
+    <!-- <div class="top" id="top" data-type ="T_view">
+        <a href="javascript:;" class="arrow"></a>浏览照片
+        <a href="javascript:;" class="share"></a>
+    </div> -->
+
+    <!-- 图片详情开始 共用模块g-message -->
+    <div id="photoMessage" class="g-message">
+        <!--点赞和评论-->
+            <div class="m-praise">
+                <div class="btn-list">
+                    <a class="btn-zan" data-type = "love" href="javascript:;"></a>
+                    <a class="btn-comment" data-type = "comment"href="javascript:;"></a>
+                </div>
+                <div class="say-wrapper hidden">
+                    <textarea name="content" class="txt-publish" placeholder="说点什么吧~"></textarea>
+                    <a href="javascript:;" class="btn-publish">发表</a>
+                </div>
+            </div>
+    </div>
+    <!-- 图片详情结束 -->
+
+    <!-- 共用评论列表开始 -->
+            <!--点赞人数-->
+    <div id="viewComment" class="m-comment">
+        <!-- 点赞 -->
+        <div id="praise-block" class="photoItem" photo-index = "">
+             <p class="title"><span class="num zanNum">0</span>&nbsp;人赞过</p>
+             <div class="zan-wrap">
+                <ul class="zan-list">
+                </ul>
+            </div>
+        </div>
+            <!--评论区-->
+        <div class="comment-wrap" id="comment-wrap">
+            <p class="title"><span class="num commentNum">0</span>&nbsp;条评论</p>
+            <div class="comment-list">
+
+            </div>
+            <a href="javascript:;" class="comment-more">
+                <span class="text">查看更多评论</span>
+                <i class="ico"></i>
+            </a>
+        </div>
+    </div>
+    <!-- 共用评论列表结束 -->
+
+    <!--   底部广告banner条开始-->
+    <div id="m-bottom-banner">
+        <div class="box">
+            <p class="txt">
+                梦族APP
+                <br>
+                <span class="color">全球时尚集中营</span>
+            </p>
+            <a href="#" class="btn">立即下载</a>
+        </div>
+    </div>
+    <!--   底部广告banner条结束-->
+    
+    <!--图片模板-->
+    <script type="text/template" id="authorTemp">
+        <!--作者头像-->
+        <div class="author">    
+            <div class="author-wrapper">
+                <div class="author-info">
+                    <a href="public_home.html?id=<%=Uid%>" class="portrait">
+                        <%if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg' || UserInfo.Image == null) {%>
+                            <img src="images/user.jpg" width="50px">
+                        <%}%>
+                        <% if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                            <img src="<%=UserInfo.Image%>" width="50px">
+                        <% } %>
+				    </a>
+                    <h3 class="author-name"><%=UserInfo.UserNick%></h3>
+                    <div class="author-time"><%=Time%></div>
+                </div>
+                <a href="javascript:;" class="author-follow" data-type = "focus">+关注</a>
+            </div>
+        </div>
+           <!--图片详情-->
+           <div class="message-content">
+            <img src="<%=Photo%>" alt="">
+            <!-- 共用标签tags模块开始 -->
+            <ul class="m-tags">
+                <% var reurl = window.location.href,
+                       index = reurl.lastIndexOf("/")+1,
+                       Reurl = reurl.substring(index);
+                    Reurl = Reurl.replaceAll("?","||").replaceAll("=","__").replaceAll("&","#"); %>
+	            <%if(TagLs != null) {%>
+	            	<%for(var i = 0;i<TagLs.length;i++){%>
+						<li class="fl">
+							<a href="photo_tag.html?id=<%=TagLs[i]%>&reurl=<%=Reurl%>">
+							     #<%=TagLs[i].substring(TagLs[i].indexOf('#') + 1,TagLs[i].lastIndexOf('#'))%>
+							</a>
+						</li>
+					<%}%>
+	           <%}%>
+            </ul>
+            <!-- 共用标签tags模块结束-->
+            <h2 class="m-title"><%=Declare%></h2>
+            </div>
+            
+            
+			<input type="hidden" id="userID" value="<%=UserInfo.Uid%>"/>
+		</script>
+
+
+        <script type="text/template" id = "photoPraiseTemp">             
+                    <li>
+                        <a href="public_home.html?id=<%=Uid%>">
+                        <%if (Image == '' || Image == null || Image =='http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                            <img src="images/user.jpg" alt="">
+                        <% } %>
+                        <%if (Image != '' && Image !='http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                            <img src="<%=Image%>">
+                        <% } %>
+                        </a>
+                    </li>
+        </script>
+
+        <script type="text/template" id = "userCommentTemp">
+                <dl>
+                    <dt>
+                        <a href="public_home.html?id=<%=UserInfo.Uid%>">
+                            <%if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                                <img  class="avatar" src="images/user.jpg"/>
+                            <% } %>
+                            <%if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                                <img class='avatar' src='<%=UserInfo.Image%>'/>
+                            <% } %>
+                        </a>
+                    </dt>
+                    <dd>
+                        <div class="comment-info">
+                            <span class="username"><%=UserInfo.UserNick%></span>
+                            <span class="time"><%=Time%></span>
+                        </div>
+                        <p class="replay"><%=Comment%></p>
+                    </dd>
+                </dl>
+        </script>
+        
+    <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+    <!-- <script type="text/javascript" src='js/jquery.cookie.js'></script> -->
+    <script type="text/javascript" src="js/ejs_production.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>  
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/tools/MZ_share(test).js"></script>
+    <!-- <script type="text/javascript" src="js/phonegap-1.4.1.js"></script> -->
+    <!-- <script type="text/javascript" src="js/takePhotoPlugin.js"></script> -->
+    <!-- <script type="text/javascript" src='js/layer.m.js'></script> -->
+    <!-- <script type="text/javascript" src="js/MZ_activity.js"></script> -->
+    <!--<script src="js/N-t.js"></script>-->
+    
+</body>
+
+</html>

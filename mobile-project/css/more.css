@@ -1,0 +1,28 @@
+
+/*搭配帮热门人物*/
+.top{text-align: center;color: #595959;font-size: 20px;background-color: #f7f7f7;height: 40px;line-height: 40px;position: fixed;z-index: 999;top: 0px;width: 100%;}
+.top a{width: 20px;height: 30px;display: block;text-indent: -9999em;background: url("../images/arrow-left.png") no-repeat;background-size: 16px 27px;position: absolute;left: 20px;top: 8px;z-index: 9999;}
+.list ul{box-sizing: border-box;position: relative;margin-top: 18px;}
+.list ul li:first-child{border-top: 0;margin-top: 50px;}
+.list ul li{box-sizing: border-box;padding-bottom: 20px;position: relative;border-top: 15px #ededed solid;}
+.list ul li a.portrait{display: inline-block;width: 65px;margin-left: 15px; height: 65px;}
+.list ul li a.portrait img{border-radius: 50%;}
+.list ul li .introduction{display: inline-block;margin-left: 5px;position: relative;top: 22px;}
+.list ul li .introduction a.name{color: #3b3b3b;font-size: 16px; display: block;width: 150px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.list ul li .introduction p{color: #999;font-size: 14px;}
+.list ul li .attention{display: inline-block;width: 65px;height: 28px;border: 2px solid #ff7f00;font-size: 15px;color: #ff7f00;text-align: center;line-height: 26px;cursor: pointer;margin-top: 40px;position: absolute;right: 10px;}
+.hot-active {display: inline-block;width: 65px;height: 28px;border: 2px solid #ccc;font-size: 15px;color: #ccc;text-align: center;line-height: 26px;cursor: pointer;margin-top: 40px;position: absolute;right: 10px;}
+.attention {display: inline-block;width: 65px;height: 28px;border: 2px solid #ff7f00;font-size: 15px;color: #ff7f00;text-align: center;line-height: 26px;cursor: pointer;margin-top: 40px;position: absolute;right: 10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

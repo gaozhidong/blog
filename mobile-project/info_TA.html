@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css"  rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+
+<title>基本信息</title>
+</head>
+
+<body>
+<div id="info_wrap">
+    <div class="person_top">
+    	<script type="text/template" id="infoHead">
+    		<a class="person_top_ico" href="javascript:history.go(-1)"></a>
+    	</script>
+        基本信息
+    </div>
+    <div class="p_form_info">
+    	<form action="#">
+        <script type="text/template" id="user_info">
+        	<div class="form_item" id="datepicker1">
+                <label>头像</label>
+                <a class="p_user_head" href="javascript:;"><img src="<%=Image%>"></a>
+            </div>
+            <div class="form_item">
+                <label>姓名</label>
+                <span class="item_nowrap styleitem" id="s_name"><%=UserNick%></span>
+            </div>
+            <div class="form_item" id="itemsign">
+                <label>个性签名</label>
+                <span class="item_nowrap styleitem" id="s_sign"><%=Description%></span>
+            </div>
+            
+            
+            <div class="form_item last_area" id="itemsex">
+                <label>性别</label>
+                <span class="item_nowrap styleitem" id="s_sex">
+                <%=Sex%>
+                </span>
+            </div>
+            <div class="form_item">
+                <label>年龄</label>
+                <span class="item_nowrap styleitem" id="age"><%=BirthDay%></span>
+            </div>
+            <div class="form_item" id="itemhoro">
+                <label>星座</label>
+                <span class="item_nowrap styleitem" id="s_horo"><%=Cid%></span>
+            </div>
+            <div class="form_item" id="itemlike">
+                <label>爱好</label>
+                <span class="item_nowrap styleitem" id="s_like"><%=Interest%></span>
+            </div>
+            <div class="form_item" id="itemlocal">
+                <label>所在地</label>
+                <span class="item_nowrap styleitem" id="s_local"><%=Address%></span>
+            </div>
+            <div class="form_item" id="itemcamp">
+                <label>阵营</label>
+                <span class="item_nowrap styleitem" id="s_camp"></span>
+            </div>
+            <div class="form_item" id="itemtag">
+                <label>标签</label>
+                <span class="item_nowrap styleitem" id="s_tag"><%=Tag%></span>
+            </div>
+        </script>
+            
+        </form>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/info_TA.js"></script>
+
+
+</html>

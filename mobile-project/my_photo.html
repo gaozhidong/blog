@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+<title>我的相册</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico" href="user.html"></a>
+    我的相册
+</div>
+<div class="like_photo_area" data-page="1" data-loading="0" id="Myphoto">
+	<ul class="clearfix">
+    <script type="text/template" id="photoList">
+        <li>
+            <% var reurl=window.location.href;  
+                var index = reurl.lastIndexOf('/') + 1;                           
+                var Reurl = reurl.substring(index);
+                Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+            %>
+            <a class="like_pic" href="photo_tag.html?id=<%=Tag_Name%>&uid=<%=Uid%>&reurl=<%=Reurl%>" class="like_pic">
+            	<img src="<%=Photo%>">
+            	<div class="today_time">
+                	<span class="time_solid"></span>
+                	<div class="like_tag_style" href="javascript:;"><%=Tag_Name%></div>
+                	<div class="photo_num" href="javascript:;">共（<%=PicCount%>）张</div>
+            	</div>
+            </a>
+            
+        </li>
+    </script>
+    </ul>	
+</div>
+
+<div class="active_state hidden" id="nophoto">
+        <img src="images/active_03.jpg">
+        <p>TA没有留下什么内容</p>
+</div> 
+
+
+</body>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/ejs_production.js"></script>  
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/photo.js"></script>
+</html>

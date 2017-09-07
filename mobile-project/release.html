@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+
+<title>发布</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico"  href="circle.html"></a>
+    发布
+    <a href="javascript:;" class="p_define"></a>
+</div>
+<div class="p_content">
+	<textarea  class="p_t_area" placeholder="请输入内容"></textarea>
+</div>
+<div class="p_addarea">
+	  <div class="p_addpic">
+			<a href="javascript:;" class="addimg" id="datepicker1">
+	    	</a>
+	    </div>
+
+	    <p>（每张照片需添加1-3个标签）</p>
+	    <div class="p_mytags">
+			<p>我的标签：</p>
+	        <div class="p_wrap_tags" id="tag_show">
+	            <div class="p_tags_list">
+	                <span>时尚</span>
+					<a href="javascript:;" class="tag_delete"></a>
+	            </div>
+	            <div class="p_tags_list">
+	                <span>美女</span>
+					<a href="javascript:;" class="tag_delete"></a>
+	            </div>
+	            <div class="p_tags_list">
+	                <span>艺术</span>
+					<a href="javascript:;" class="tag_delete"></a>
+	            </div>
+	        </div>
+		</div> 
+</div>
+<div class="p_addtags">
+	<input class="p_r_tags" placeholder="在此添加标签" >
+    <a href="javascript:;" id="add">加标签</a>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+<script type="text/javascript" src="js/takePhotoPlugin.js"></script>
+<script src="js/release.js"></script>
+</html>

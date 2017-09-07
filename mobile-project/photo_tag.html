@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+    <link href="css/common.css" rel="stylesheet" />
+    <link href="css/Personal.css"  rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script src="js/ejs_production.js"></script>  
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/layer.m.js"></script>
+    <title>相册标签页</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico" href="javascript:history.go(-1)"></a>
+    <div class="phoptoName"></div>
+</div>
+<div class="like_photo_area" data-page="1" data-loading="0" id="Mytag">
+	<ul class="clearfix" >
+    <script type="text/template" id="tagList">
+        <li>
+            <a class="like_pic" href="viewPhptos.html?pid=<%=Pid%>" class="like_pic"><img src="<%=Photo%>"></a>
+         </li>
+    </script>
+    </ul> 	
+</div>
+</body>
+<script>
+//======================相册标签页模板渲染===============================
+var tagListHTML="",
+    tagList=document.getElementById("tagList").innerHTML;
+
+var reurl = $.getUrlVar('reurl');
+        $(".person_top").on("click",".person_top_ico",function(){
+             str2=$.getUrlVar('reurl');          
+            str2 = str2.replaceAll('||','?').replaceAll('__','=').replaceAll('#','&');  
+            window.location.href = str2;
+        })
+function photo_tag_list(page){
+    var id =decodeURI($.getUrlVar('id'));
+    $('.phoptoName').text(id);
+    var uid= $.getUrlVar('uid');
+    $.ajax({
+    url:MoonduDomain+'/photoB/GetPhotoByTag',
+    type:"GET",
+    dataType:"jsonp",
+    data:{tag:id,page:page,pagesize:10,uid:uid},
+    success: function(data){
+        console.log(data);
+        data=data.Data.Rows;
+        if(data.length>0){
+            for(var i=0;i<data.length;i++){
+                var template=new EJS({"text":tagList});
+                tagListHTML += template.render(data[i]);
+            }
+                $(".like_photo_area ul").html(tagListHTML);
+            }
+            else{
+                $(".like_photo_area").attr("data-page","0");
+            }
+            $(".like_photo_area").attr("data-loading","0");
+            loading_hide();
+        }
+    });
+}
+photo_tag_list(1);
+//=========================瀑布流==============================
+$(window).scroll(function () {
+   var totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+   page=parseInt($(".like_photo_area").attr("data-page"));
+   loading=parseInt($(".like_photo_area").attr("data-loading"));
+     if ($(document).height() <= totalheight) {
+        //loading_show();
+        if(page>0 && loading==0){
+            $(".like_photo_area").attr("data-page",page+1);
+            $(".like_photo_area").attr("data-loading","1");
+            photo_tag_list( $(".like_photo_area").attr("data-page"));
+        }
+    }
+});
+//加载时候显示
+function loading_show(){
+    $("body").append('<div class="loading"></div>');
+}
+function loading_hide(){
+   $(".loading").remove();
+}
+</script>
+</html>
+

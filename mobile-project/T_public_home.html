@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+<link href="css/circle.css" rel="stylesheet"/>
+<link href="css/find.css" rel="stylesheet"/>
+
+<title>个人中心公共-进入状态</title>
+</head>
+
+<body>
+<div class="public_home_top">
+	<script type="text/template" id="public_top">
+    <% var reurl=window.location.href;  
+       var index = reurl.lastIndexOf('/') + 1;             
+       var Reurl = reurl.substring(index);
+        Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+    %> 
+    	<a class="p_top_ico" href="javascript:;"></a>
+        <div class="p_my_head">
+            	<div class="head_pic">
+                	<a href="info_TA.html?id=<%=Uid%>&reurl=<%=Reurl%>" class="wrap">
+    					<img class="wrap_user_head" src="<%=Image%>">                        
+                    </a>
+                </div>
+                <a class="home_username" href="javascript:;"><%=UserNick%></a>
+                <p><%=Description%></p>
+        </div>
+        <div class="public_home_wrap">
+        <% var reurl=window.location.href;  
+            var index = reurl.lastIndexOf('/') + 1;             
+            var Reurl = reurl.substring(index);
+            Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+         %> 
+        	<p class="public_fans">
+            <a href="myFan.html?uid=<%=Uid%>&reurl=<%=Reurl%>">粉丝</a><a href="myFan.html?uid=<%=Uid%>&reurl=<%=Reurl%>" id="att_num"><%=To_Count%></a>
+            <span style="padding-right:5px;">|</span>
+            <a href="myAttention.html?uid=<%=Uid%>&reurl=<%=Reurl%>">关注</a><a href="myAttention.html?uid=<%=Uid%>&reurl=<%=Reurl%>"><%=From_Count%></a></p>
+        </div>  
+        <div class="public_home_wrap" id="Focus">
+            <% if (Flag == true) {%>
+        	   <a class="hasAtten" href="javascript:;" id="<%=Uid%>" flag=<%=Flag%> >已关注</a>
+            <%}%>
+
+            <% if (Flag == false) {%>
+                 <a class="public_add_attention" href="javascript:;" id="<%=Uid%>" flag=<%=Flag%>>+关注</a>
+            <%}%>
+        </div>
+
+    </script>
+	
+</div>
+
+<div class="public_nav">
+	<div class="public_nav_box">
+    	<a href="javascript:;"  class="like_style" data-id='0'>星秀场</a>
+        <a href="javascript:;"  data-id='1'>梦话</a>
+        <a href="javascript:;"   data-id='2'>相册</a>
+        <a href="javascript:;"   data-id='3'>活动</a>
+    </div>
+</div>
+
+
+
+<div class="public_wrap" style="display:block;">
+<!--星秀场开始-->
+    <div class="p_show p_container">
+        <div class="showBox">
+            <script type="text/template" id="show_box">       
+                <div class="show_wrap">           
+                    <h2><%=Title%></h2>
+                    <div class="p_vote">
+                            <div class="vote_wape">
+                            <p>已有<a class="p_vote_num" href="javascript:;" id="vote_num" ><%=ShwoCount%></a>人投票</p>
+                            </div>
+                    </div>
+                    <ul>
+                        <li>年龄：<%=Age%></li>
+                        <li>身高：<%=Height%></li>
+                        <li>体重：<%=Weight%></li>
+                        <li>胸围：<%=Chest%></li>
+                        <li>腰围：<%=Waist%></li>
+                        <li>臀围：<%=Hip%></li>
+                    </ul>
+                    
+                    <a href="javascript:;"  class="p_show_pic"><img src="<%=Img_Url%>"></a>            
+                </div>            
+                <div class="show_tags">
+                    <% if (vote_state == 1) {%>
+                       <a  href="javascript:;" class="hasVoted" id="<%=vote_state%>">已投票</a>
+                    <%}%>
+
+                    <% if (vote_state == 0) {%>
+                       <a  href="javascript:;" class="p_btn_bottom" id="<%=vote_state%>">给TA投票</a>
+                    <%}%>
+
+                </div>      
+        	</script>
+        </div>
+
+        <div class="active_state hidden" id="noshow">
+            <img src="images/active_03.jpg">
+            <p>TA没有报名星秀场</p>
+        </div>
+    </div>
+
+    
+<!--星秀场结束-->
+
+<!--梦话开始-->
+<div class="circle-content p_container" style="display:none;" id="myDream">
+	<div class="item-wrap"  data-page="1" data-loading="0">
+		<script id="dreamTemp" type="text/template"> 
+			<div class="item" data-pid=<%=Pid%>>
+				<ul>
+					<li class="fl"><a href="javascript:;" class="author-pic"><img src="<%=UserInfo.Image%>" width="80%"></a></li>
+					<li class="fl">
+						<div class="issue-wrap">
+						<h2 class="author-name"><%=UserInfo.UserNick%></h2>
+						<span class="issue-time"><span class="time"><%=Time%></span></span>
+						</div>
+						<h2 class="title"><%=Declare%></h2>
+                        <% var reurl=window.location.href;  
+                            var index = reurl.lastIndexOf('/') + 1;                           
+                            var Reurl = reurl.substring(index);
+                            Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+                         %>
+						<a href="viewPhptos.html?pid=<%=Pid%>&reurl=<%=Reurl%>" class="issue-pic"><img src="<%=Photo%>" width="100%"/></a>
+						<div class="love-comment fr">
+							<a href="javascript:;" class="love common" data-type=<%=Pid%>></a>
+							<a href="viewPhptos.html?pid=<%=Pid%>&reurl=<%=Reurl%>" class="comment common" data-type="comment"></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</script>
+	</div>
+    <div class="active_state hidden" id="nodream">
+        <img src="images/active_03.jpg">
+        <p>TA没有留下什么内容</p>
+    </div>
+
+</div>
+
+					
+<!--梦话结束-->
+<!--相册开始-->
+<div class="like_photo_area  p_container" style="display:none;">
+    <ul class="clearfix" data-page="1" data-loading="0" id="photoWrap">
+    <script type="text/template" id="photoList">
+        <li>
+            <% var reurl=window.location.href;  
+                var index = reurl.lastIndexOf('/') + 1;                           
+                var Reurl = reurl.substring(index);
+                Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+            %>
+            <a class="like_pic" href="photo_tag.html?id=<%=Tag_Name%>&uid=<%=Uid%>&reurl=<%=Reurl%>" class="like_pic">
+                <img src="<%=Photo%>">
+                <div class="today_time">
+                    <span class="time_solid"></span>
+                    <div class="like_tag_style" href="javascript:;"><%=Tag_Name%></div>
+                    <div class="photo_num" href="javascript:;">共（<%=PicCount%>）张</div>
+                </div>
+            </a>
+        </li>
+    </script>
+    </ul> 
+    <div class="active_state hidden" id="nophoto">
+        <img src="images/active_03.jpg">
+        <p>TA没有留下什么内容</p>
+    </div>  
+</div>
+<!--相册结束-->
+<!--活动开始-->
+<div class="active_area  p_container" style="display:none;" data-page="1" data-loading="0">
+    <script type="text/template" id="active_box">
+        <%   var reurl=window.location.href;  
+            var index = reurl.lastIndexOf('/') + 1;                           
+            var Reurl = reurl.substring(index);
+            Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+        %>
+        <a class="active_content" href="find-detail.html?id=<%=Id%>&reurl=<%=Reurl%>">
+            <div  class="active_pic"><img  src="<%=ImgUrl%>"></div>
+            <div class="active_info">
+                <h2><%=Title%></h2>
+                <p><%=StartTime%>-<%=EndTime%></p>
+                <div class="active_join_num" >已有<%=VoteCount%>人参加
+                    <div class="active_join_ico"></div>
+                </div>
+            </div>
+        </a>
+		</script>
+    <div class="active_state hidden" id="noactive">
+        <img src="images/active_03.jpg">
+        <p>TA没有留下什么内容</p>
+    </div>
+</div>
+    
+<!--活动结束-->
+</div>
+
+
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+</body>
+<script src="js/public_home.js"></script>
+<script src="js/foot.js"></script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/m-massage.css">
+		<link rel="stylesheet" type="text/css" href="css/view.css">
+		<title>M-资讯</title>
+	</head>
+	<body data-fn="message">
+		<div class="message-top">
+			<a href="my_like.html" class="arrow"></a>M-资讯
+		</div>
+		<div id="detaiMessage">
+			<script type="text/template" id="authorTemp">
+			<div class="author">
+				<a href="public_home.html" class="portrait"><img src="<%=portrait%>" width="50px"></a>
+				<div class="issue-wrap">
+					<h2 class="author-name"><%=author%></h2>
+					<span class="issue-time">今天<span class="time"><%=time%></span></span>
+				</div>
+			</div>
+			<h2 class="title"><%=introduction%></h2>
+			<ul class="tags clearfix">
+				<li class="fl">标签：</li>
+				<li class="fl"><a href="javascript:;"><%=tags1%></a></li>
+				<li class="fl"><a href="javascript:;"><%=tags2%></a></li>
+				<li class="fl"><a href="javascript:;"><%=tags3%></a></li>
+			</ul>
+			<div class="message-content">
+				<p class="describe"><%=message1%></p>
+				<img src="images/m-author.jpg">
+				<p class="describe"><%=message2%></p>
+			</div>
+			<div class="praise">
+				<div class="zan">他们都赞了这篇文章（<span class="num" id="praise_num">10</span>个赞）</div>
+					<ul class="clearfix">
+						<% for(var i=0; i<zan.length; i++) {%>  
+   							<li class="fl"><a href="t_public_home.html"><img src="<%=zan[i].user%>" width="80%"></a></li>
+						<% } %>  
+					</ul>
+			</div>
+			</script>
+		</div>
+			<div class="brank"></div>
+		<div class="issue">
+			<div class="say"><input type="text" placeholder="说点什么吧~" value="说点什么吧~"><img src="images/smile.png" class="smile" width="30px"></div>
+			<a href="javascript:;" class="publish">发表</a>
+			<a href="javascript:;" class="love"></a>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/MZ_activity.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/find.css">
+<link href="css/Personal.css"  rel="stylesheet" />
+<title>我喜欢的</title>
+</head>
+<body>
+	<div class="person_top" id="personTop">
+		<a class="person_top_ico" href="user.html"></a>
+	    我喜欢的
+	</div>
+	<div class="like_nav">
+		<div class="like_nav_box">
+	    	<a href="javascript:;"  class="like_style" data-id="0">活动</a>
+	        <a href="javascript:;" data-id="1">资讯</a>
+	        <a href="javascript:;" data-id="2">照片</a>
+	    </div>
+	</div>
+	
+	<div class="like_wrap blank">
+	<!--我喜欢的活动开始-->
+		<div class="active_area slideBox" style="display:block;" data-page="1" data-loading="0" id="Likeactive">
+			<div class="activeWrap">
+				<script type="text/template" id="active_box">
+					<% 
+						var reurl=window.location.href;
+						var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);
+					%> 
+			        <a class="active_content" href="find-detail.html?id=<%=Id%>&reurl=<%=Reurl%>">
+				    	<div  class="active_pic"><img class="lazy" src="<%=ImgUrl%>" width="100%"></div>
+				    	<div class="active_info">
+				    		<h2><%=Title%></h2>
+				        	<p><%=StartTime%>-<%=EndTime%></p>
+				        	<div class="active_join_num" >已有<%=VoteCount%>人参加
+				                <div class="active_join_ico"></div>
+				        	</div>
+				    	</div>
+			   		</a>
+				</script>
+			</div>
+			 <div class="active_state hidden" id="noactive">
+        		<img src="images/active_03.jpg">
+        		<p>没有留下什么内容</p>
+    		</div>
+		</div>
+	<!--我喜欢的活动结束-->
+	
+	<!--我喜欢的资讯开始-->
+	<div class="like_info slideBox" style="display:none; ">
+		<div class="message-wrap" id="hotDiscuss" data-fn="hide" data-page="1" data-page="0" style="margin-top:20px;">
+			<div class="find-discuss-blank"></div>
+			<script type="text/template" id="hotDiscussTemp">
+				<div class="list-item" data-postId=<%=Id%>>
+				<% var reurl=window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+				<a class="content" href="m-massage.html?id=<%=Id%>&reurl=<%=Reurl%>">
+					<div class="wrap fl">
+						<h2><%=Title%></h2>
+						<div class="content"><%=Content%></div>
+					</div>
+					<img src="<%=ImgUrl%>" width="35%" class="fr">
+				</a>
+				<input type="hidden" value=<%=Id%> data-type="postID">
+				<span class="time" style="font-size: 14px;"><%=CreateTime%></span>
+				<span href="javascript:;" class="comment-num" data-type="comment"><sup><%=ComCount%></sup></span>
+			</div>
+			</script>
+		</div>
+	<!--comment template-->
+		<div class="person_top hidden" id="ListTop">
+			<a class="person_top_ico" href="javascript:;"></a>
+	    	评论列表
+		</div>
+		<div id='comment-page' data-page="1" data-page="0" class="hidden" style="margin-top: 40px;">
+				<div class='find-message hidden'>
+					用户留言<a href='javascript:;'>
+						(<span class='num'>0</span>条)
+					</a>
+				</div>
+				<ul class='find-user-massage' id='userComment'>
+					<script type='text/template' id='userCommentTemp'>
+						<li data-uid=<%=UserInfo.Uid%>>
+						<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%> 
+							<a href="public_home.html?id=<%=UserInfo.Uid%>&reurl=<%=Reurl%>">
+								<% if (UserInfo.Image == '' || UserInfo.Image == 'http://nginx.moonbasagroup.com/images/user.jpg') {%>
+									<img class='user-icon fl' src="images/user.jpg"/>
+								<% } %>
+								<% if (UserInfo.Image != '' && UserInfo.Image != 'http://nginx.moonbasagroup.com/images/user.jpg') {%>
+									<img class='user-icon fl' src="<%=UserInfo.Image%>"/>
+								<% } %>
+							</a>
+							<span class='user'><%=UserInfo.UserNick%></span>
+							<span class='issue-time'><span class='time'><%=CreateTime%></span></span>
+							<span class='replay'><span class='content'><%=Content%></span></span>
+						</li>
+					</script>
+				</ul>
+
+				<div id="commentLayer" class="hidden">
+					<textarea value="说点什么吧~" placeholder="说点什么吧~"></textarea>
+					<button>发表</button>
+				</div>
+		</div>
+			<!--ends-->
+	<!--ends-->
+	<!--发表评论-->
+		
+
+		<div class="info_state hidden" id="noinfo">
+        	<img src="images/active_03.jpg">
+        	<p>没有留下什么内容</p>
+    	</div>
+	</div>
+	<!--我喜欢的资讯结束-->
+
+	<!--我喜欢的照片开始-->
+		<div class="like_photo_area slideBox" style="display:none;" data-page="1" data-loading="0" id="Likephoto">
+		<div class="blank"></div>
+			<ul class="clearfix">
+		    	<script type="text/template" id="photo_box">
+		            <li>
+		            	<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%> 
+		                <a class="like_pic" href="viewPhptos.html?pid=<%=Pid%>&reurl=<%=Reurl%>"><img src="<%=Photo%>"/></a>
+		                <div class="today_time">
+		                	<span class="time_solid"></span>
+		                    <span class="photo_time"><span class="time"><%=Time%></span></span>
+		                </div>
+		            </li>
+				</script>
+		    </ul>
+		    <div class="active_state hidden" id="noimg">
+        		<img src="images/active_03.jpg">
+        		<p>没有留下什么内容</p>
+    		</div>	
+		</div>
+	<!--我喜欢的照片结束-->
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/layer.m.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script src="js/ejs_production.js"></script>  
+	<script src="js/myLike.js"></script>
+</body>
+</html>
+

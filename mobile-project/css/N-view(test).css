@@ -1,0 +1,412 @@
+body {
+    font-family: Microsoft YaHei, sans-serif;
+    background: #f9f9f9;
+}
+
+/********************************************************
+********************    图片详情开始  ******************************/
+
+#photoMessage {
+    margin-top: -55px;
+    padding: 0 4%;
+    border-bottom: 1px solid #dcdcdc;
+    background: #fff;
+}
+
+/*用户信息*/
+.author {
+    position: relative;
+    padding: 0;
+}
+
+.author-wrapper {
+    position: relative;
+    height: 44px;
+    padding: 0 4%;
+    margin-bottom: 14px;
+}
+.author-info {
+    position: relative;
+}
+
+.author-wrapper .author-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.author-wrapper .author-img img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.author-wrapper .author-name {
+    position: absolute;
+    left: 60px;
+    top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.author-wrapper .author-time {
+    position: absolute;
+    left: 60px;
+    top: 30px;
+    font-size: 12px;
+    color: #afafaf;
+}
+
+.author-wrapper .author-follow {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    padding: 5px 8px;
+    border: 1px solid #ff7f00;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #ff7f00;
+    cursor: pointer;
+}
+.author-wrapper .followed {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    padding: 5px 8px;
+    border: 1px solid #D4CDCD;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #D4CDCD;
+    cursor: pointer;
+}
+
+
+/* 共用图片模板 */
+
+#photoMessage .message-content {
+    padding: 0;
+}
+
+#photoMessage .message-content img {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+ 
+/* 公共标签tags模块 */
+
+.g-message .m-tags {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.g-message .m-tags li {
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    margin-right: 14px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.g-message .m-tags a {
+    color: #afafaf;
+}
+
+#photoMessage .m-title {
+    line-height: 1.5;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* 共用点赞评论模块 */
+
+.m-praise {
+    position: relative;
+    padding: 15px 0;
+    margin-top: 10px;
+}
+
+.m-praise .btn-list {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.m-praise .btn-list img {
+    width: 17px;
+    height: 15px;
+}
+
+.m-praise .btn-zan{
+    background: url(../images/zan.png) no-repeat;
+    background-size: 17px 30px;
+    display: inline-block;
+    width: 17px;
+    height: 15px;
+   
+}
+.m-praise .love-after {
+    background: url(../images/zan.png) no-repeat 0 -15px;
+    background-size: 17px 30px;
+    display: inline-block;
+    width: 17px;
+    height: 15px;
+}
+
+.m-praise .btn-comment {
+    margin-left: 36px;
+    margin-right: 6px;
+    background: url(../images/comment.png) no-repeat;
+    background-size: 17px 15px;
+    display: inline-block;
+    width: 17px;
+    height: 15px;
+   
+}
+
+.m-praise .say-wrapper {
+    position: relative;
+    margin-top: 15px;
+    height: 100px;
+}
+
+.m-praise .say-wrapper:before {
+    content: '';
+    position: absolute;
+    right: 11px;
+    top: -16px;
+    width: 0;
+    height: 0;
+    border: 8px solid #f0f0f0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.m-praise .txt-publish {
+    width: 100%;
+    height: 56px;
+    padding: 8px 11px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: #f0f0f0;
+    color: #a9a9a9;
+    resize: none;
+}
+
+.m-praise .btn-publish {
+    float: right;
+    margin-top: 10px;
+    padding: 7px 17px;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #f3ad34;
+    color: #fff;
+}
+
+/********************************************************
+********************    图片详情结束  ******************************/
+
+
+
+/********************************************************
+********************    评论列表开始  ******************************/
+#comment-wrap .comment-list dl {
+    overflow: hidden;
+}
+#comment-wrap .comment-list dt {
+    margin-top: 5px;
+    float: left;
+}
+#comment-wrap .comment-list dd {
+    overflow: hidden;
+    border-bottom: 1px solid #c0c0c0;
+}
+.m-comment {
+    margin-top: 15px;   
+    margin-bottom: 75px;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    background: #fff;
+}
+
+.m-comment .title {
+    padding-left: 4%;
+    font-size: 13px;
+    color: #f3ad34;
+    margin: 15px 0;
+}
+
+.m-comment .zan-wrap {
+    position: relative;
+    margin: 0 2%;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #d1d1d1;
+    overflow: hidden;
+}
+
+.m-comment .zan-wrap .zan-list {
+    padding-left: 3%;
+    float: left;
+}
+
+.m-comment .zan-list li {
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+.m-comment .zan-list li.ellipsis {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.m-comment .zan-list .ellipsis a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: bolder;
+    color: #f3ad34;
+}
+
+.m-comment .zan-list img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.m-comment .comment-list {
+    padding-left: 4%;
+}
+
+.m-comment .comment-list li {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 5px;
+    padding: 5px 0;
+}
+.m-comment .comment-list li div {
+    border-bottom: 1px solid #c0c0c0;
+    overflow: hidden;
+}
+
+.m-comment .comment-list img {
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.m-comment .comment-list .comment-info {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.m-comment .comment-list .user {
+    color: #6f6f6f;
+    font-size: 12px;
+}
+
+.m-comment .comment-list .time {
+    float: right;
+    margin-right: 4%;
+    color: #aeaeae;
+    font-size: 12px;
+}
+
+.m-comment .comment-list .replay {
+    line-height: 20px;
+    font-size: 14px;
+    color: #333;
+    margin: 6px 5px 10px 0;
+}
+
+.m-comment .comment-more {
+    display: block;
+    margin: 18px auto 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #f3ad34;
+}
+
+.m-comment .comment-more .text {
+    padding: 0 5px;
+}
+
+.m-comment .comment-more .ico {
+    display: inline-block;
+    width: 12px;
+    height: 6px;
+    background: url(../images/comment-more.png) no-repeat;
+    background-size: 12px 12px;
+}
+
+/********************************************************
+********************  评论列表结束  ******************************/
+
+
+/********************************************************
+*****************    底部广告banner开始   **************************/
+#m-bottom-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 999;
+    background: #4a4a4a;
+}
+
+#m-bottom-banner .box {
+    position: relative;
+    height: 100%;
+    background: url(../images/m-logo.png) no-repeat 8px 5px;
+    background-size: 40px 40px;
+}
+
+#m-bottom-banner .box .txt {
+    padding: 10px 0 0 55px;
+    color: #fff;
+    font-size: 13px;
+}
+
+#m-bottom-banner .box .color {
+    font-size: 12px;
+    color: #f3ad34;
+}
+
+#m-bottom-banner .box .btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 78px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 6px;
+    background-color: #f3ad34;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+/********************************************************
+*****************    底部广告banner结束   **************************/
+
+a,
+button,
+input,
+optgroup,
+select,
+textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    去掉a、input和button点击时的蓝色外边框和灰色半透明背景
+}

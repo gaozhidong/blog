@@ -1,0 +1,33 @@
+body {
+    font-family: Microsoft YaHei, sans-serif;
+    background: #f9f9f9;
+}
+
+#detaiMessage {
+    margin-top: 53px;
+    border-bottom: 1px solid #dcdcdc;
+    background: #fff;
+}
+
+#detaiMessage .d-title {
+    padding: 0 4%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    font-weight: normal;
+    color: #000;
+}
+
+#detaiMessage .pl4 {
+    padding: 0 4%;
+}
+
+#detaiMessage .message-content .content {
+    white-space: normal;
+}
+
+/*去掉 author头像 margin-top: 53px*/
+#detaiMessage .d-author{
+    margin: 0;
+    border-bottom: 1px solid #dcdcdc;
+}

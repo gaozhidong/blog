@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/Personal.css"  rel="stylesheet" />
+		<title>消息中心</title>
+	</head>
+	<body style="background:#fff;">
+		<div class="top"><a href="set.html" class="arrow"></a>消息中心</div>
+		<div class="massage-detail" data-page="1" data-loading="0">
+			<ul>
+			<script type="text/template" id="message">
+				<li>
+					<a class="answer-what label" href=javascript:;> 
+						<%=Context%>
+					</a>
+				</li>
+			</script>
+			</ul>
+		</div>
+		<div class="noMessage hidden">
+			<p>您暂时没有新消息</p>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script src="js/ejs_production.js"></script>  
+	<script src="js/config.js"></script> 
+	<script src="js/message.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+

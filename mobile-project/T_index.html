@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css"  rel="stylesheet" />
+<link href="css/index.css"  rel="stylesheet" />
+<title>首页</title>
+</head>
+<body data-type='T_index'>
+		<div class="app hidden">
+			<div id="global"></div>
+			<div id="img" class=""><img id="imgs" src="images/browser.jpg"></div>
+		</div>
+<div id="index_share_link">
+   <a href="javascript:;"><img src="images/T_page.png" width="100%"></a>
+</div>
+<div class="index">
+<ul class="default newList" id="infoList">
+	<script type="text/template" id="default_box"> 
+		<li data-pid = <%=id%>>
+		<% if(!is_activ){ var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+			<a href="find-detail.html?id=<%=id%>&reurl=<%=Reurl%>" class="u_img"><img src="<%=img%>" width="100%"></a>
+		<% }%>
+		<% if(is_activ){ var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+			<a href="find-detail.html?id=<%=id%>&reurl=<%=Reurl%>" class="u_img"><img src="<%=img%>" width="100%"></a>
+		<% }%>
+		<div class="u_info">
+			<a href="juavascript:;"  class="u_head"><img src="img/m_logo.jpg"></a> 
+			<div class="u_name">
+				<h2>梦族Mzone官方</h2>
+			</div>
+			<div class="u_ico">
+			<% if (vote_state == 0) {%>
+				<a class="u_like"><em><%=mz_like%></em></a>
+			<% } %>
+
+			<% if (vote_state == 1) {%>
+				<a class="u_like_red"><em><%=mz_like%></em></a>
+			<% } %>
+				<a class="u_share"></a>
+			</div>
+
+		</div>
+		<p class="tags">标签：
+		<% for(var i=0; i<tags.length; i++) { var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);  %>
+			<a href="photo_tag.html?id=<%=tags[i]%>&reurl=<%=Reurl%>" class="indexTag"><%=tags[i]%></span>
+		<% }%>
+		</p>
+		<input type="hidden" value="<%=id%>" data-type="pitureID">
+	</li>
+	</script>
+
+</ul>
+
+<ul class="index_scroll newList" data-page="1" data-loading="0" id="ListScroll">
+<script type="text/template" id="scroll_box">	
+	<li data-pid='<%=Pid%>'>
+		<% var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);  %>
+		<a href="viewPhptos.html?pid=<%=Pid%>&reurl=<%=Reurl%>" class="u_img"><img src="<%=Photo%>" width="100%"></a>
+		<div class="u_info">
+			<a href="public_home.html?id=<%=Uid%>&reurl=<%=Reurl%>"  class="u_head"><img src="<%=UserInfo.Image%>"></a>
+			<div class="u_name">
+				<h2>
+			    <%=UserInfo.UserNick%>
+				</h2>
+				<span>来自：<%=Tag_Name%></span>
+			</div>
+			<div class="u_ico">
+				<a class="u_like" data-type="<%=Pid%>"><em><%=Like_Count%></em></a>
+				<a class="u_share"></a>
+			</div>
+
+		</div>
+		<p class="tags"><em>标签：</em>
+		<% if(TagLs!=null){ for(var i=0; i<TagLs.length; i++) {
+			var tagsll=TagLs[i].replace("#","").replace("#","");
+			 var reurl=window.location.href;
+			 var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);  
+			%>
+			<a href="photo_tag.html?id=<%=tagsll%>&reurl=<%=Reurl%>" class="indexTag"><%=TagLs[i]%></span>
+		<% } }%>
+		</p>
+		<input type="hidden" value="<%=Pid%>"  data-type="pitureID">
+	</li>
+
+</script>
+</ul>
+
+</div>
+
+<div class="foot_bar"></div>
+	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script src="js/ejs_production.js" type="text/javascript"></script>  
+	<script src="js/config.js" type="text/javascript"></script> 
+	<script src="js/layer.m.js" type="text/javascript"></script>
+	<script src="js/tools/T_index.js" type="text/javascript"></script>
+	<script src="js/tools/T_foot.js" type="text/javascript"></script>
+</body>
+
+</html>
+

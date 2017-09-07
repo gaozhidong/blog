@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css"  rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+
+<title>基本信息</title>
+</head>
+
+<body>
+<div id="info_wrap">
+    <div class="person_top">
+    	<a class="person_top_ico" href="user.html"></a>
+        基本信息
+        <a href="javascript:;" class="p_define" id="submit"></a>
+    </div>
+    <div class="p_form_info">
+    	<form action="#">
+        <script type="text/template" id="user_info">
+        	<div class="form_item" id="datepicker1">
+                <label>头像</label>
+                <a class="p_user_head" href="javascript:;"><img src="<%=Image%>"></a>
+                <a class="p_info_ico" href="javascript:;"></a>
+            </div>
+            <div class="form_item">
+                <label>姓名</label>
+                <input type="text" value="<%=UserNick%>" id="username">
+            </div>
+            <div class="form_item" id="itemsign">
+                <label>个性签名</label>
+                <span class="item_nowrap styleitem" id="s_sign"><%=Description%></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            
+            
+            <div class="form_item last_area" id="itemsex">
+                <label>性别</label>
+                <span class="item_nowrap styleitem" id="s_sex">
+                <%=Sex%>
+                </span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            <div class="form_item">
+                <label>年龄</label>
+                <input type="text" value="<%=BirthDay%>" id="age">
+            </div>
+            <div class="form_item" id="itemhoro">
+                <label>星座</label>
+                <span class="item_nowrap styleitem" id="s_horo"><%=Cid%></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            <div class="form_item" id="itemlike">
+                <label>爱好</label>
+                <span class="item_nowrap styleitem" id="s_like"><%=Interest%></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            <div class="form_item" id="itemlocal">
+                <label>所在地</label>
+                <span class="item_nowrap styleitem" id="s_local"><%=Address%></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            <div class="form_item" id="itemcamp">
+                <label>阵营</label>
+                <span class="item_nowrap styleitem" id="s_camp"></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+            <div class="form_item" id="itemtag">
+                <label>标签</label>
+                <span class="item_nowrap styleitem" id="s_tag"><%=Tag%></span>
+                <a href="javascript:;" class="p_info_ico"></a>
+            </div>
+        </script>
+            
+        </form>
+    </div>
+</div>
+
+<!-- 基本信息-标签 -->
+<div id="tag_wrap" class="hidden">
+    <div class="person_top">
+       <a class="person_top_ico"  href="javascript:;" id="tagBack"></a>
+        基本信息
+    </div>
+    <div class="p_mytags">
+            <p>我的标签:</p>
+            <div class="p_wrap_tags" id="tag">
+                <!-- <div class="p_tags_list">
+                    <span>时尚</span>
+                </div>
+                <div class="p_tags_list">
+                    <span>美女</span>
+                </div>
+                <div class="p_tags_list">
+                    <span>艺术</span>
+                </div> -->
+            </div>
+    </div>
+    <div class="p_hot_tags">
+        <p>热门标签选择：</p>
+            <div class="p_hot_wrap" id="hot">
+            <script type="text/template" id="tag_choice">
+                <a href="javascript:;" class="hot_tags_list tag_color"></a>
+            </script>
+            </div>
+    </div>
+</div>
+
+
+<!-- 基本信息-个性签名 -->
+<div id="sign_wrap" class="hidden">
+    <div class="person_top">
+        <a class="person_top_ico" href="javascript:;" id="signBack"></a>
+        基本信息
+    </div>
+    <div class="p_content" id="sign_content">
+    <script type="text/template" id="sign_info">
+            <textarea class="p_t_area"  name="caseContent"  onkeydown="checkMaxInput(this,30)" 
+            onkeyup="checkMaxInput(this,30)" onfocus="checkMaxInput(this,30)" onblur="checkMaxInput(this,30);resetMaxmsg()"><%=Description%></textarea>
+    </script>
+    </div>
+</div>
+
+<!-- 基本信息-性别 -->
+<div id="sex_wrap" class="hidden">
+    <div class="person_top">
+   <a class="person_top_ico infohide" href="javascript:;"></a>
+    基本信息
+    </div>
+    <div class="p_sex">
+        <ul class="p_input_ul u_sex">
+                <li id="1" data-sex='1'>男<a href="javascript:;"></a></li>
+                <li id="0" data-sex='0'>女<a href="javascript:;"></a></li>
+        </ul>
+    </div>
+</div>
+<!-- 基本信息-星座 -->
+<div id="horo_wrap" class="hidden">
+        <div class="person_top">
+            <a class="person_top_ico" href="javascript:;" id="horoBack"></a>
+            星座
+         </div>
+        <div class="p_sex">
+            <ul class="p_input_ul u_horo">
+                <li id="1">白羊座<a href="javascript:;"></a></li>
+                <li id="2">狮子座<a href="javascript:;"></a></li>
+                <li id="3">双子座<a href="javascript:;"></a></li>
+                <li id="4">天蝎座<a href="javascript:;"></a></li>
+                <li id="5">水瓶座<a href="javascript:;"></a></li>
+                <li id="6">金牛座<a href="javascript:;"></a></li>
+                <li id="7">巨蟹座<a href="javascript:;"></a></li>
+                <li id="8">天秤座<a href="javascript:;"></a></li>
+                <li id="9">双鱼座<a href="javascript:;"></a></li>
+                <li id="10">处女座<a href="javascript:;"></a></li>
+                <li id="11">摩羯座<a href="javascript:;"></a></li>
+                <li id="12">射手座<a href="javascript:;"></a></li>
+            </ul>
+        </div>
+</div>
+
+<!-- 基本信息-爱好 -->
+<div id="like_wrap" class="hidden">
+    <div class="person_top">
+       <a class="person_top_ico" href="javascript:;" id="likeBack"></a>
+        我的爱好
+    </div>
+    <div class="p_content" id="like_content">
+    <script type="text/template" id="like_info">
+            <textarea class="p_t_area"  name="caseContent" onkeydown="checkMaxInput(this,30)"
+            onkeyup="checkMaxInput(this,30)" onfocus="checkMaxInput(this,30)" onblur="checkMaxInput(this,30);resetMaxmsg()"><%=Interest%></textarea>
+    </script>
+    </div>
+</div>
+
+<!-- 基本信息-所在地-省份 -->
+   <div id="local_wrap" class="hidden">
+        <div class="person_top">
+            <a class="person_top_ico" href="javascript:;" id="proBack"></a>
+            请选择省份
+         </div>
+        <div class="p_sex">
+            <ul class="p_input_ul u_province">
+                <script type="text/template" id="uesr_province">
+                <li id="<%=id%>">
+                    <%=Province%>
+                     <a href="javascript:;"></a>
+                </li>
+                </script>
+            </ul>
+        </div>
+</div>
+
+<!-- 基本信息-所在地-城市 -->
+    <div id="city_wrap" class="hidden">
+        <div class="person_top">
+            <a class="person_top_ico" href="javascript:;" id="cityBack"></a>
+            请选择城市
+         </div>
+        <div class="p_sex">
+            <ul class="p_input_ul u_city">
+                <script type="text/template" id="uesr_city">
+                <li id="<%=id%>">
+                    <%=City%>
+                     <a href="javascript:;"></a>
+                </li>
+                </script>
+            </ul>
+        </div>
+</div>
+
+<!-- 基本信息-所在地-选择地区 -->
+    <div id="area_wrap" class="hidden">
+        <div class="person_top">
+           <a class="person_top_ico" href="javascript:;" id="areaBack"></a>
+            请选择地区
+         </div>
+        <div class="p_sex">
+            <ul class="p_input_ul u_area">
+                <script type="text/template" id="uesr_area">
+                <li id="<%=id%>">
+                    <%=District%>
+                     <a href="javascript:;"></a>
+                </li>
+                </script>
+            </ul>
+        </div>
+</div>
+
+
+<!-- 基本信息-阵营 -->
+<div id="camp_wrap" class="hidden">
+    <div class="person_top">
+  <a class="person_top_ico" href="javascript:;" id="campBack"></a>
+    基本信息
+    </div>
+    <div class="p_camp">
+        <ul class="p_input_ul u_camp">
+                <li id="40">
+                    星秀场
+                    <a href="javascript:;"></a>
+                </li>
+                <li id="41">
+                    搭配帮
+                    <a href="javascript:;"></a>
+                </li>
+                <li id="42">
+                    设计党
+                    <a  href="javascript:;"></a>
+                </li>
+        </ul>
+    </div>
+    <div class="p_camp_wrap">
+    <p>阵型内容可以多选</p>
+    </div>
+</div>
+<div id="mask" class="hidden"></div>
+</body>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+<script type="text/javascript" src="js/takePhotoPlugin.js"></script>
+<script type="text/javascript" src="http://mgirl.moonbasa.com/api/c.php"></script>
+<script src="js/info.js"></script>
+</html>

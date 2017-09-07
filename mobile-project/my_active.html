@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script src="js/ejs_production.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+
+<title>我的活动</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico" href="user.html"></a>
+	我的活动
+</div>
+<div class="active_area" data-page="1" data-loading="0" id="Myactive">
+	<script type="text/template" id="activeTemp">
+  <% var reurl=window.location.href;
+    var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);
+  %> 
+	<a class="active_content" href="find-detail.html?id=<%=Id%>&reurl=<%=Reurl%>">
+    	<div  class="active_pic"><img  src="<%=ImgUrl%>"></div>
+    	<div class="active_info">
+    		<h2><%=Title%></h2>
+        	<p><%=StartTime%>-<%=EndTime%></p>
+        	<div class="active_join_num" >已有<%=VoteCount%>人参加
+                <div class="active_join_ico"></div>
+        	</div>
+    	</div>
+    </a>
+    </script>
+</div>
+
+
+ <div class="active_state hidden" id="noactive">
+        <img src="images/active_03.jpg">
+        <p>我没有留下什么内容</p>
+    </div>
+</body>
+<script type="text/javascript">
+$(function(){
+    var html="";
+    var activeTemp=document.getElementById("activeTemp").innerHTML;
+    var id="";
+    //================判断当前页面用户是否已经登录=============
+  function getCurrentUserInforAjax(){
+     var option={
+        url:MoonduDomain+'/UserCenter/GetUserInfo',
+        callback:function(res){
+          if (res.Result == "nologin") {
+            $.login("是否登录");
+          };
+          if (res.Result) { 
+            id=res.Data.Uid;
+            active_list(1);
+          }        
+        }
+      }
+    $.md.ajaxurl(option);
+  }
+  getCurrentUserInforAjax();
+    //==================我的活动模板渲染=======================
+function active_list(page){
+    var option={
+    url:MoonduDomain+'/MNews/MyActiv',
+    data:{pageindex:page},
+    callback: function(data){
+         data=data.Data.Rows;
+         if(data==""&&page<=1){
+              $(".active_area").addClass("hidden");
+              $("#noactive").removeClass("hidden");
+          } 
+
+          if(data.length>0){
+                for(var i=0; i<data.length;i++) 
+                {
+                    var template = new EJS({"text": activeTemp});
+                    html += template.render(data[i]);
+                } 
+                $(".active_area").append(html);
+
+          }
+          else{
+            $(".active_area").attr("data-page","0");
+
+          }
+          $(".active_area").attr("data-loading","0");
+          loading_hide(); 
+
+                  
+        }
+  }
+  $.md.ajaxurl(option);
+}
+
+
+//=====================我的活动瀑布流=============================
+$(window).scroll(function(){
+    totalheight= parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+    if($(document).height()<=totalheight){
+         page=parseInt($(".active_area").attr("data-page"));
+         loading=parseInt($(".active_area").attr("data-loading"));
+        if(page>0 && loading==0){
+            $(".active_area").attr("data-page",page+1);
+            $(".active_area").attr("data-loading","1");
+            active_list( $(".active_area").attr("data-page"));
+        }
+    }
+});
+
+
+//===================加载显示=====================================
+
+
+function loading_show(){
+
+    $('body').append('<div class="loading"></div>');
+}
+
+function loading_hide(){
+
+    $('.loading').remove();
+}
+
+})
+    
+</script>
+
+</html>

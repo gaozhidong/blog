@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/m-show.css"  rel="stylesheet" />
+		<link href="css/find.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="css/flexslider.css">
+		<title>星秀场</title>
+	</head>
+	<body data-type="show">
+		<div class="top" id="showTop">
+			<a href="find-activity.html" class="returnToShow"></a>星秀场
+			<span class="join">
+				<a href="javascript:;" class="join-us">加入阵营</a>
+			</span>
+		</div>
+		<div class="search" id="search">
+			<div class="search-inner">
+				<a href="javascript:;"></a><span> | </span><input type="text" placeholder="请输入搜索人物的名字" value="" />
+			</div>
+		</div>
+		<div id="tab" data-type="False">
+				<div class="find-activity-tab flexslider" style="min-height:114px;">
+					<ul class="tab slides clear-fix" id="picScroll">
+						 <script type="text/template" id='picScrollTemp'>
+						 	<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+     						<li><a href="find-detail.html?id=<%=Id%>&reurl=<%=Reurl%>"><img src="<%=ImgUrl%>" width="100%"/></a></li>
+    					</script>
+					</ul>
+				</div>
+		</div>
+		<ul class="new-hot clearfix" id="rank">
+			<li class="hot-section section-common" data-rank='votes' data-index='0'>
+				<span class="new-icon common-icon"></span>
+				<p class="new title">按票数排序</p>
+				<p class="english-name-new english-name">The Hot Section</p>
+				<div class="current"></div>
+			</li>
+			<li class="new-section section-common" data-rank='fans' data-index='1'>
+				<span class="hot-icon common-icon"></span>
+				<p class="hot title">按粉丝排序</p>
+				<p class="english-name-hot english-name">The New Section</p>	
+				<div class="current hidden"></div>
+			</li>
+		</ul>
+		<div id="wrap">
+			<ul id="voting-section" class="vote"></ul>
+			<ul id="rankingByFans" class="fans hidden"></ul>
+		</div>
+		<input type='hidden' value="" id="activityId" />
+		<!--template-->
+		<!--按票数排序-->
+		<script type="text/template" id="rankingByVotesTemp">
+		  	<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+			<li class="item" data-post='<%=Id%>' data-uid=<%=UserInfo.Uid%>>
+				<a href="m-show-choice.html?id=<%=Id%>&uid=<%=UserInfo.Uid%>&aid=<%=AID%>&reurl=<%=Reurl%>" class="competitor_pic"><img src="<%=Img_Url%>" width="100%"></a>
+				<p class=" candidacy"><%=Message%></p>
+				<p class='username'><%=UserInfo.UserNick%></p>
+				<span class="vote-num"><%=ShwoCount%></span><span>票</span>
+
+				<% if(vote_state == 0){%>
+					<button class="votedBtn notVoted" data-type="button">投票</button>
+				<% }%>
+
+				<% if(vote_state == 1){%>
+					<button class="votedBtn hasVoted" data-type="button">已投票</button>
+				<% }%>
+				<input type="hidden" value="<%=AID%>" data-type="activityID"/>
+				<input type="hidden" value="<%=Id%>" data-type="postID"/>
+				<input type="hidden" value="<%=UserInfo.Uid%>" data-type="userID"/>
+			</li>
+		</script>
+		<div class="bottom-fix">
+			<p class="txt">如果你感觉不服气，你也来吧！</p>
+			<span class="join"><a href="#">我要报名</a></span>
+		</div>
+		<!--按粉丝排序-->
+		<script type="text/template" id="rankingByFansTemp">
+			<li class="item" data-post=<%=Id%> data-uid=<%=UserInfo.Uid%>>
+				<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+				<a href="m-show-choice.html?id=<%=Id%>?&uid=<%=UserInfo.Uid%>&aid=<%=AID%>&reurl=<%=Reurl%>" class="competitor_pic"><img src="<%=Img_Url%>" width="100%"></a>
+				<p class=" candidacy"><%=Message%></p>
+				<p class='username'><%=UserInfo.UserNick%></p>
+				<span class="vote-num"><%=ShwoCount%></span><span>票数</span>
+				<% if(vote_state == 0){%>
+					<button class="votedBtn notVoted" data-type="button">投票</button>
+				<% }%>
+				<% if(vote_state == 1){%>
+					<button class="votedBtn hasVoted" data-type="button">已投票</button>
+				<% }%>
+				<input type="hidden" value="<%=AID%>" data-type="activityID"/>
+			</li>
+		</script>
+		<!--ends-->
+		<script type="text/javascript" src="http://mgirl.moonbasa.com/api/m.php"></script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script type="text/javascript" src="js/tools/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/tools/masonry.min.js"></script>
+		<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+		<script src="js/config.js"></script> 
+        <script type="text/javascript" src="js/layer.m.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/MZ_find.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

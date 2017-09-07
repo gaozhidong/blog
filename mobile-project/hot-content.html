@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link href="css/find.css"  rel="stylesheet" />
+		<title>热门内容</title>
+	</head>
+	<body data-type="hot-content">
+		<div class="message-head" data-fn="hide" id="top">
+			<a href="find-activity.html" class="arrow"> &gt; </a>热门内容
+		</div>
+		<div class="message-wrap" id="hotDiscuss" data-fn="hide">
+		<script type="text/template" id="hotDiscussTemp">
+			<div class="list-item" data-post=<%=Id%>>
+				<% var reurl=window.location.href;   var Reurl=reurl.substring(reurl.lastIndexOf("/")+1); %>
+				<a class="content" href="m-massage.html?id=<%=Id%>">
+					<div class="wrap fl">
+						<h2><%=Title%></h2>
+						<div class="content"><%=Content%></div>
+					</div>
+					<img src="<%=ImgUrl%>" width="35%" class="fr">
+				</a>
+				<input type="hidden" value=<%=Id%> data-type="Id">
+				<span class="time"><%=CreateTime%></span>
+				<span href="javascript:;" class="comment-num" data-type="comment" data-post=<%=Id%>><sup><%=ComCount%></sup></span>
+			</div>
+		</script>
+	</div>
+		<div id='comment-page' class='hidden' style="margin-top: 40px;">
+			<div class='find-activity-top'>评论<a href='javascript:;' class='arrow'></a></div>
+			<div class='find-message'>
+				用户留言<a href='javascript:;'>
+					(<span class='num'>0</span>条)
+				</a>
+			</div>
+			<ul class='find-user-massage' id='userComment'></ul>
+		</div>
+		<div id="littleActivity" class="hidden">
+			<a href="javascript:;" class="camera fl"></a>
+			<a href="javascript:;" class="photos fl"></a>
+			<a href="javascript:;" class="close"></a>
+		</div>
+	<!--发表评论-->
+		<div id="commentLayer" class="hidden">
+			<input value="" placeholder="说点什么吧~"/>
+			<button>发表</button>
+		</div>
+		<script type='text/template' id='userCommentTemp'>
+			<li data-uid='<%=UserInfo.Uid%>'>
+			<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+				<a href="public_home.html?id=<%=UserInfo.Uid%>" class='potrait'>
+					<% if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+						<img class='user-icon fl' src="images/user.jpg" data-uid="<%=UserInfo.Uid%>"/></a>
+					<% } %>
+					<% if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+						<img class='user-icon fl' src="<%=UserInfo.Image%>" data-uid="<%=UserInfo.Uid%>"/></a>
+					<% } %>
+				</a>
+				<span class='user'><%=UserInfo.UserNick%></span>
+				<span class='issue-time'><span class='time'><%=CreateTime%></span></span>
+				<p class='replay'><%=Content%></p>
+				<input type="hidden" value="<%=UserInfo.Uid%>"/>
+			</li>
+		</script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src='js/public.js'></script>
+		<script type="text/javascript" src='js/layer.m.js'></script>
+		<script type="text/javascript" src="js/MZ_hot.js"></script>
+	</body>
+</html>

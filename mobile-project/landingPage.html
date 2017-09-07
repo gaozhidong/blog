@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/view.css">
+		<title>照片落地页</title>
+	</head>
+	<body data-fn="landingPage">
+		<div class="top" id="top">
+			<a href="javascript:;" class="arrow"></a>照片落地页
+			<a href="javascript:;" class="share"></a>
+		</div>
+		<div id="photoMessage"></div>
+		<div class="brank"></div>
+		<!--praise template-->
+		<div class="praise" id="praise">
+			<div class="zan">他们都赞了这篇文章（<span class="num">10</span>个赞）</div>
+				<ul class="clearfix">
+					<script type="text/template" id="photoPraiseTemp">
+						<% var reurl=window.location.href;  var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%>
+						<li class="fl" data-sex=<%=Sex%> data-UserID=<%=Uid%>><a href="public_home.html?id=<%=Uid%>"><img src="<%=Image%>" width="80%"></a></li>
+					</script>
+				</ul>
+		</div>
+			<div id='comment-page'>
+				<div class='find-message'>
+					用户留言<a href='javascript:;'>
+						(<span class='num'>20</span>条)
+					</a>
+				</div>
+				<ul class='find-user-massage' id='userComment'></ul>
+			</div>
+			<!--ends-->
+		<div class="issue" id="releaseCommentPanel">
+			<div class="say"><input type="text"  placeholder="说点什么吧~" value="" /><img src="images/smile.png" class="smile" width="30px"></div>
+			<a href="javascript:;" class="publish">发表</a>
+			<a href="javascript:;" class="love"></a>
+		</div>
+		<script type="text/template" id="authorTemp">
+			<div class="author" data-sex=<%=UserInfo.Sex%> data-UserID=<%=Uid%>>
+				<a href="public_home.html?id=<%=Uid%>" class="portrait"><img src="<%=UserInfo.Image%>" width="50px"></a>
+				<div class="issue-wrap">
+					<h2 class="author-name"><%=UserInfo.UserNick%></h2>
+					<span class="issue-time"><span class="day"></span><span class="time"><%=Time%></span></span>
+				</div>
+			</div>
+			<h2 class="title"><%=Declare%></h2>
+			<ul class="tags clearfix">
+				<li class="fl">标签：</li>
+				<%for(var i = 0;i<TagLs.length;i++){%>
+					<li class="fl"><a href="photo_tag.html?id=<%=TagLs[i]%>"><%=TagLs[i]%></a></li>
+				<%}%>
+			</ul>
+			<div class="message-content">
+				<p class="describe"><%=UserInfo.Description%></p>
+				<img src="<%=Photo%>" width="100%"/>
+				<a href="javascript:;" class="delete">删除</a>
+				<input type="hidden" data-type="pictureId" value="<%=Pid%>">
+			</div>
+			<input type="hidden" id="userID" value="<%=UserInfo.Uid%>"/>
+		</script>
+		<script type='text/template' id='userCommentTemp'>
+			<li data-commentID=<%=Cid%> data-sex=<%=UserInfo.Sex%> data-UserID=<%=UserInfo.Uid%> data-commentID=<%=Cid%>>
+				<a href="public_home.html?id=<%=UserInfo.Uid%>"><img class='user-icon fl' src='<%=UserInfo.Image%>'/></a>
+				<span class='user'><%=UserInfo.UserNick%></span>
+				<span class='issue-time'><span class='time'><%=Time%></span></span>
+				<span class='replay'><span class='content'>回复<a href='javascript:;'></a><%=Comment%></span></span>
+			</li>
+		</script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script type="text/javascript" src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>  
+		<script type="text/javascript" src="js/layer.m.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/MZ_circle.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

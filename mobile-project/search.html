@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>搜索人物</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/search.css">
+	</head>
+	<body data-type="search">
+		<div class="search-top" id="top">
+			<a href="javascript:history.go(-1)" class="arrow"></a>
+		</div>
+		<div class="match-search clearfix" id="serchField">
+			<form action="">
+				<a href="javascript:;"></a>
+				<input type="text" placeholder="请输入搜索人物的名字" class="searchBox">
+				<a href="javascript:;" class="cancel fr" id="cancel" data-fn='search'>搜索</a>
+			</form>
+		</div>
+		<div class="search-rank" id="search">
+			<ul></ul>
+		</div>
+		<script type="text/template" id="searchTemp">
+			<li data-uid=<%=Uid%>>
+				<% var reurl=window.location.href;  
+                    var index = reurl.lastIndexOf('/') + 1;
+                    var Reurl = reurl.substring(index);
+                    Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+                %>
+				<a href="public_home.html?id=<%=Uid%>" class="portrait">
+					<% if (Image == '' || Image == null || Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+						<img src="images/user.jpg" width="100%">
+					<% } %>
+					<% if (Image != '' && Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+						<img src="<%=Image%>" width="100%">
+					<% } %>
+				</a>
+				<div class="introduction">
+					<a href="public_home.html?id=<%=Uid%>" data-type='name' max-length=16><%=UserNick%></a>
+					<p><%=Tag%></p>
+					<span class="attention-num"><%=From_Count%>人关注</span>
+				</div>
+				<%if (Flag == false) { %>
+					<a href="javascript:;" class="attention fr" data-id=<%=Uid%> data-type='attention'>+关注</a>
+				<%}%>
+				<%if (Flag == true) { %>
+					<a href="javascript:;" class="hot-active fr" data-id=<%=Uid%> data-type='attention'>已关注</a>
+				<%}%>
+			</li>
+		</script>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+		<script type="text/javascript" src="js/layer.m.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/MZ_hot.js"></script>
+	</body>
+</html>

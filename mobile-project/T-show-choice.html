@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+<title>T-show评选单页</title>
+	<link href="css/common.css" rel="stylesheet"/>
+	<link href="css/T-show.css" rel="stylesheet"/>
+	<link href="css/Personal.css"  rel="stylesheet" />
+</head>
+<style type="text/css">
+	ul.find-user-massage li img.user-icon{width: 65px;height: 65px;}
+	button{cursor: none;}
+	.find-message {
+		color: #3b3b3b;
+		font-size: 28px;
+		padding: 55px 10.9% 32px 4.3%;
+	}
+</style>
+	<body data-type='T_show'>
+		<div class="app hidden">
+			<div id="global"></div>
+			<div id="img" class=""><img id="imgs" src="images/browser.jpg"></div>
+		</div>
+		<div id="show_share_link">
+		   <a href="javascript:;">
+		   <img src="images/T_page.png" width="100%"></a>
+		</div>
+		<div class="main_visual">
+	         <div class="flicking_con">
+	         	<a class="back_ico" href="javascript:;" style="display:none;"></a>
+			 	<a class="share" href="javascript:;" style="display:none;"></a>
+	        	<div class="flicking_inner m-show-num" style="display:none;">
+	       	   </div>
+	        </div>
+			<div class="main_image">
+				<ul id="imglist"></ul>
+			</div>
+			</div>
+	        <div class="user_show_wrap">
+			    <div class="head_box">
+			    	<script type="text/template" id="userInfo">
+			    	<% var reurl=window.location.href;  
+                		var index = reurl.lastIndexOf('/') + 1;				
+                		var Reurl = reurl.substring(index);
+                		Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+            		%> 
+				        <a class="user_head" href="javascript:;">
+				            <img src="<%=Image%>">
+				        </a>
+				        <span><%=UserNick%></span>
+			        </script>
+			    </div>	    
+		    	<div class="show_info">
+				    <script type="text/template" id="showInfo">
+				    	  <h2></h2>
+				          <ul>
+				            <li>年龄：<%=Age%></li>
+			                <li>身高：<%=Height%></li>
+			                <li>体重：<%=Weight%></li>
+			                <li>胸围：<%=Chest%></li>
+			                <li>腰围：<%=Waist%></li>
+			                <li>臀围：<%=Hip%></li>
+				         </ul>
+				    <% if (vote_state == 1) {%>
+					    <div class="hasvoteWrap">
+					        <div class="vote_ta">
+					        	<span class="vote_num"><%=ShwoCount%></span>
+					        </div>
+					        	<p>已投票</p>
+					    </div>
+				    <%}%>
+
+				    <% if (vote_state == 0) {%>
+					    <div class="voteWrap">
+					        <div class="vote_ta">
+					        	<span class="vote_num"><%=ShwoCount%></span>
+					        </div>
+					        	<p>投TA</p>			       
+					    </div>
+				     <%}%>
+				    </script>
+		    	</div>
+	    	</div>
+	    	<div class="blank"></div>
+			<div id="comment-page" class="comment-page">
+				<div class="find-message">
+					用户留言<a href="javascript:;"></a>
+				</div>
+				<ul class="find-user-massage" id="userComment">
+					<script type="text/template" id="userCommentTemp">
+						<li data-uid="<%=UserInfo.Uid%>">
+							 <% var reurl=window.location.href;  
+                				var index = reurl.lastIndexOf('/') + 1;				
+                				var Reurl = reurl.substring(index);
+                				Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+           					 %> 
+							<a href="javascript:;" class='left-item fl'>
+								
+								<% if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+									<img class="user-icon fl" src="images/user.jpg"/>
+								<% } %>
+								<% if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+									<img class="user-icon fl" src="<%=UserInfo.Image%>"/>
+								<% } %>
+							</a>
+							<div class='right-item'>
+								<span class='user'><%=UserInfo.UserNick%></span>
+								<span class='issue-time'><span class='time'><%=CreateTime%></span></span>
+								<p class='replay'><%=Content%></p>
+							</div>
+	                        <input type="hidden" id="userId" value="<%=UserInfo.Uid%>">
+	                        <input type="hidden" id="userName" value="<%=UserInfo.UserNick%>">
+						</li>
+					</script>
+				</ul>
+			</div> 
+			<div id="commentLayer">
+				<textarea value="说点什么吧~" placeholder="说点什么吧~" readonly="readonly"></textarea>
+				<button>发表</button>
+			</div>
+			<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+			<script src="js/ejs_production.js"></script> 
+			<script type="text/javascript" src="js/jquery.event.drag-2.0.js"></script>
+			<script type="text/javascript" src="js/layer.m.js"></script>
+			<script type="text/javascript" src="js/config.js"></script>
+			<script type="text/javascript" src="js/public.js"></script>
+			<script src="js/tools/T_show.js"></script>
+	</body>
+</html>

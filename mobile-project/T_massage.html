@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/m-massage.css">
+    <link rel="stylesheet" type="text/css" href="css/view.css">
+    <link rel="stylesheet" type="text/css" href="css/N-view.css">
+    <!--自己的css 开始-->
+    <link rel="stylesheet" href="css/N-m-message.css">
+    <!--自己的css结束-->
+    <title>M-资讯</title>
+    <!-- <link href="http://mzone.moonbasa.com/js/need/layer.css" type="text/css" rel="styleSheet" id="layermcss"> -->
+</head>
+
+<body data-fn = "message" data-type = "T_message">
+    <!-- <div class="app hidden">
+        <div id="global"></div>
+        <div id="img" class=""><img id="imgs" src="images/browser.jpg"></div>
+    </div> -->
+
+    <!-- 资讯内容开始 -->
+    <div id="detaiMessage" class="g-message">
+            <!-- 作者头像结束 -->
+            <div class="author d-author">
+                <div class="author-wrapper">
+                    <div class="author-info">
+                        <a href="javascript:;" class="author-img">
+                            <img src="img/m_logo.jpg">
+                        </a>
+                        <h3 class="author-name">梦族Mzone官方</h3>
+                        <div class="author-time">0</div>
+                    </div>
+                    <a href="javascript:;" class="author-follow">+关注</a>
+                </div>
+
+            </div>
+            <!--点赞评论-->
+            <div class="info_client">
+                <span class="orginal"><a href="javascript:;">阅读原文</a></span>
+                <span class="read_count">阅读10000</span>
+                <span class="preise_count"><a href="javascript:;"><img src="images/dianzan.png"></a>1000</span>
+                <span class="suggestion"><a href="javascript:;">投诉</a></span>
+            </div>
+            <!-- <div class="m-praise">
+                <div class="btn-list">
+                    <a class="btn-zan" href="javascript:;"></a>
+                    <a class="btn-comment" href="javascript:;"></a>
+                </div>
+                <div class="say-wrapper hidden">
+                    <textarea name="content" class="txt-publish" placeholder="说点什么吧~"></textarea>
+                    <a href="javascript:;" class="btn-publish">发表</a>
+                </div>
+            </div> -->
+        </div>
+    <!-- 资讯内容结束 -->
+
+
+    <!-- 评论与点赞列表模块开始 -->
+    <div id="messageComment" class="m-comment">
+        
+        <!-- <div class="zan-wrap">
+            <p class="title"><span class="num zanNum">0</span>&nbsp;人赞过</p>
+            <ul class="zan-list">
+            点赞用户头像
+            </ul>
+        </div> -->
+        <div id="comment-wrap">
+            <span>精选留言</span>
+            <p class="title"><span class="num commentNum">0</span>&nbsp;条留言</p>
+            
+            <div class="comment-list">
+            <!-- 用户评论信息 -->
+            </div>
+            <a href="javascript:;" class="comment-more">
+                <span class="text">查看更多留言</span><i class="ico"></i>
+            </a>
+        </div>
+    </div>
+    <!-- 评论列表模块结束 -->
+
+    <!--   底部广告banner模块开始 -->
+    <div id="m-bottom-banner">
+        <div class="box">
+            <p class="txt">
+                梦族APP
+                <br>
+                <span class="color">全球时尚集中营</span>
+            </p>
+            <a href="javascript:;" class="btn">立即下载</a>
+        </div>
+    </div>
+    <!--   底部广告banner模块结束 -->
+
+    <script type="text/template" id="messageTemp">
+        <%  var reurl=window.location.href;  
+            var index = reurl.lastIndexOf('/') + 1;             
+            var Reurl = reurl.substring(index);
+            if (Type == 1) {
+                window.location.href="T_find-detail.html?id="+Id<!--  + '&reurl=' + Reurl -->;
+            }
+            Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+         %>
+         <!-- 资讯标题 -->
+         <h2 class="d-title"><%=Title%></h2>
+         <span class="tag_title" id="tag_title">原创</span>
+         <!-- 时间 -->
+         <span class="tag_title" id="tag_time"><%=CreateTime%></span>
+         <span class="tag_title"><a href="javascript:;">梦族Zone</a></span>
+         <!-- 标签 -->
+         <!-- <ul class="m-tags pl4">
+            <%  var reurl=window.location.href;  
+                var index = reurl.lastIndexOf('/') + 1;             
+                var Reurl = reurl.substring(index);
+                Reurl = Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+            %>
+            <%if (Labels.length > 0) {%>
+                <%for(var i = 0;i< Labels.split(',').length; i++){%>
+                    <li class="fl"><a href="javascript:;">#<%=Labels.split(',')[i]%></a></li>
+                <%}%>
+            <% } %>
+        </ul> -->
+        <!-- 资讯内容 -->
+        <div class="message-content">
+                <p class="describe"><%=Describes%></p>
+                <div class='content'><%=Content%></div>
+        </div>
+        <input type="hidden" value="<%=Id%>" id="postID"/>
+    </script>
+    <!-- 点赞区域 -->
+    <script type="text/template" id = "photoPraiseTemp">             
+        <li>
+            <a href="javascript:;" class="user_love">
+            <%if (Image == '' || Image == null || Image =='http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                <img src="images/user.jpg" alt="">
+            <% } %>
+            <%if (Image != '' && Image !='http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                <img src="<%=IMAGE%>">
+            <% } %>
+            </a>
+        </li>
+    </script>
+    <!-- 评论区域 -->
+    <script type="text/template" id = "userCommentTemp">
+        <dl>
+            <dt>
+                <a href="javascript:;" class="user_comment">
+                    <%if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                        <img  class="avatar" src="images/user.jpg"/>
+                    <% } %>
+                    <%if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+                        <img class='avatar' src='<%=UserInfo.Image%>'/>
+                    <% } %>
+                </a>
+            </dt>
+            <dd>
+                <div class="comment-info">
+                    <span class="username"><%=UserInfo.UserNick%></span>
+                    <span class="time"><%=CreateTime%></span>
+                </div>
+                <p class="replay"><%=Content%></p>
+            </dd>
+        </dl>
+    </script>
+
+
+
+    <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="js/ejs_production.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>  
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/tools/MZ_share.js"></script>
+    <!-- <script type="text/javascript" src='js/jquery.cookie.js'></script> -->
+    <!-- <script src="js/jquery-2.0.1.min.js"></script>
+    <script src="js/t.js"></script> -->
+
+
+</body>
+</html>

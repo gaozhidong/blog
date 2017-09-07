@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+
+<title>个人中心-我的主页</title>
+</head>
+
+<body>
+<div class="p_my_top">
+<script type="text/template" id="myHome">
+    <a class="p_top_ico" href="javascript:;" ></a>
+    <div class="p_my_head">
+            <div class="head_pic">
+                <a href="info.html" class="wrap">
+                    <img class="wrap_user_head"  src="<%=Image%>">
+                </a>
+            </div>
+           <a class="home_username" href="javascript:;"><%=UserNick%></a>
+            <p><%=Description%></p>
+    </div>
+    <div class="my_tags">
+    <% var reurl=window.location.href; var Reurl=reurl.substring(reurl.lastIndexOf("/")+1);%> 
+        <a href="myAttention.html?uid=<%=Uid%>&reurl=<%=Reurl%>" class="p_attention">
+            <span><%=From_Count%>关注</span>
+        </a>
+        <a href="myFan.html?uid=<%=Uid%>&reurl=<%=Reurl%>" class="p_fans">
+            <span><%=To_Count%>粉丝</span>
+        </a>
+    </div>
+</script>
+    <div class="p_my_head hidden" id="noimg">
+            <a class="p_top_ico" href="javascript:;" ></a>
+            <div class="head_pic">
+                <a href="javascript:;" class="wrap">
+                    <img class="wrap_user_head"  src="images/user.jpg">
+                </a>
+                <p style="margin-top:20px;">请点击头像去登录/注册</p>
+            </div>
+             <div class="my_tags">
+                <a href="#" class="p_attention">
+                    <em>0</em>
+                </a>
+                <a href="#" class="p_fans">
+                    <em>0</em>
+                </a>
+             </div>
+    </div>
+</div>
+<div class="p_my_tab">
+	<div class="p_tags_wrap">
+    	<a href="my_show.html" class="my_show_tags">
+            <span>我的星秀场</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+        <a href="my_photo.html" class="my_photo_tags">
+            <span>我的相册</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+       <a href="my_active.html" class="my_active_tags">
+            <span>我的活动</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+        <a href="my_like.html" class="my_like_tags">
+            <span>我喜欢的</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+        <a href="integral.html" class="my_integral_tags">
+            <span>我的数据</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+       <a href="set.html" class="my_set_tags">
+            <span>设置</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+       <a href="black.html" class="my_black_tags">
+            <span>黑名单</span>
+        </a>
+    </div>
+    <div class="p_tags_wrap">
+       <a href="myMsg.html" class="my_black_tags">
+            <span>消息</span>
+        </a>
+    </div>
+</div>
+	
+</div>
+<div id="dialog" class="hidden">
+    <script type='text/template' id='signTemplate'> 
+        <section class='find-dialog'>
+            <h2>签到成功！</h2>
+            <div class="signbox">       
+                <p class='sign-ranking'>今天签到第<span><%=Ranking%></span>名</p>
+                <p class='experience-add'>经验+<span><%=SignInExp%></span></p>
+                <p class='experience-value'>经验值<span><%=UserExp%></span>/<span><%=LevelExp%></span><span class='grade'><%=UserLevel%>级</span></p>
+            </div>
+            <footer>确定</footer>
+        </section>
+    </script>
+</div>
+<div id="mask" class="hidden"></div>
+<div class="foot_bar" id="bottomMenu"></div>
+    <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+    <script src="js/ejs_production.js"></script> 
+    <script type="text/javascript" src="js/config.js"></script>
+    <script src="js/layer.m.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/foot.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link href="css/find.css"  rel="stylesheet" />
+		<title>热门讨论</title>
+	</head>
+	<body>
+		<header class="find-discussion-head" data-fn="hide"><a href="javascript:self.close()"> &gt; </a>热门讨论</header>
+		<div class="find-discuss-blank" data-fn="hide"></div>
+		<div class="find-discuss-wrap" id="hotDiscuss" data-fn="hide">
+		<script type="text/template" id="hotDiscussTemp">
+			<a class="find-discussion" href="javascript:;">
+				<div class="wrap fl">
+					<h2><%=hotTitle%></h2>
+					<div class="content"><%=discution%></div>
+				</div>
+				<img src="<%=disscussPerson%>" width="20%"/>
+			</a>
+			<div class="find-discuss-comment">
+				<div class="wrap">
+					<a href="t_public_home.html" class="author-pic"><img src="<%=portrait%>" width="70%"></a>
+					<div class="issue-wrap">
+						<h2 class="author-name"><%=name%></h2>
+						<span class="issue-time">今天<span class="time"><%=time%></span></span>
+					</div>
+				</div>
+				<a href="javascript:;" class="comment-num"><sup><%=commmentNum%></sup></a>
+			</div>
+			<div class="find-discuss-blank"></div>
+			</div>
+		</script>
+	</div>
+	<!--发表评论-->
+		<div id="commentLayer" class="hidden">
+			<textarea value="说点什么吧~" placeholder="说点什么吧~"></textarea>
+			<button>发表</button>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+		<script src="js/config.js"></script>  
+		<script src="js/ejs_production.js"></script>
+        <script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/MZ_hot.js"></script>
+	</body>
+</html>

@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/find.css" >
+    <link rel="stylesheet" type="text/css" href="css/N-view.css">
+    <link rel="stylesheet" type="text/css" href="css/N-find.css" >
+    <title>发现-活动-详情</title>
+</head>
+
+<body data-fn = "Activity" data-type = "T_activity">
+    <div class="detail" id="top" data-fn = "hide">
+        <a href="javascript:;" class="arrow"></a>活动-详情
+    </div>
+    <div id="activity_detail" class="g-message" data-fn = "hide"></div>
+    <!--用户展示列表-->
+    <ul id="issueWork" class="people-list" data-fn = "hide">
+    </ul>
+
+    <!--   评论页面开始 -->
+    <div id="comment-container" class="hidden">
+        <div class="detail l">
+            <a href="javascript:;" class="arrow"></a>评论
+        </div>
+        <!-- 评论列表 -->
+        <div class="m-comment">
+            <div class="comment-wrap">
+                <p class="title">
+                    用户留言 (&nbsp;<span class="num">5</span>条&nbsp;)
+                </p>
+                <div class="comment-list">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   评论页面结束 -->
+
+    <!-- 评论隐藏部分开始 -->
+    <div id="a-commentLayer" class="hidden">
+        <input value="" placeholder="说点什么吧~">
+        <button>发表</button>
+    </div>
+    <!-- 评论隐藏部分结束 -->
+
+    <!-- 去参加广告条开始 -->
+    <div class="a-bottom-banner" data-fn = "hide">
+        <a href="javascript:;" class="joinActivity">
+            去参加
+        </a>
+    </div>
+    <!-- 去参加广告条结束 -->
+    <div id="mask" class="hidden"></div>
+    
+    
+    <script type="text/template" id="activityTemp">
+    	<% var reurl=window.location.href;  
+           var index = reurl.lastIndexOf('/') + 1;				
+           var Reurl = reurl.substring(index);
+        	if (Type == 2) {
+   			 window.location.href="m-message.html?id="+Id + '&reurl' + Reurl;
+   			}
+    	%>
+	        <h2 class="a-title"><%=Title%></h2>
+	        <ul class="m-tags">
+<!-- 				<li class="fl tag"><a href="javascript:;">标签：</a></li> -->
+					<%var reurl=window.location.href;  
+	        			var index = reurl.lastIndexOf('/') + 1;
+	        			reurl.substring(index);
+	        			var Reurl = reurl.substring(index);
+	        			Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');  
+	    				for(var i=0; i<Labels.split(',').length; i++) {%>
+				<li class="fl item">
+					<a href="javascript:;"><%="#" + Labels.split(',')[i]%></a>
+				</li>
+				<% } %>
+			</ul>
+        	<div class="a-describe">
+            	<div class="content"><%=Describes%></div>
+                <img class="content" src="<%=ImgUrl%>">
+            	<div class="content-more"><%=Content%></div>
+           		<a href="javascript:;" class="more-show" data-type = "more">
+                	<span class="more-txt">展开更多</span>
+                	<i class="more-ico"></i>
+            	</a>
+           		<p class="time">
+                活动类型: <span class="from"><%=TypeName%></span></br>
+                活动时间: <span class="from"><%=StartTime%>——<%=EndTime%></span></br>
+                <!-- 活动地点: <span class="from"><%=LocationDes%></span> -->
+            	</p>
+	           	<div class="box">
+	                <div class="part-in" id="joinActivity">
+	                    <span class="num" data-type = "join"><%=VoteCount%>人</span>
+                        <span>已参与活动</span>
+	                </div>
+                    <div class= "suspensionBox">
+                        <a href="javascript:;" class="like" data-type = "like">
+                            <%=LikeCount%>
+                        </a>
+                        <a href="javascript:;" class="comment a-show-comment"><%=ComCount%></a>
+                    </div>
+	            </div>
+        	</div>
+    </script>
+    <script type="text/template" id="listTemp">
+			<li data-pid=<%=Pid%>>
+				<div class="wrap">
+					<!-- 参加活动照片 -->
+					<% var reurl=window.location.href;  
+						var index = reurl.lastIndexOf('/') + 1;
+						var Reurl = reurl.substring(index);
+						Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+					 %>
+					<a href="javascript:;" class="work">
+						<img src="<%=Photo%>" width="100%" data-pid="<%=Pid%>" data-type="pic">
+					</a>
+					<!-- 照片描述 -->
+					<p class="introduction"><%=Declare%></p>
+					<% var reurl=window.location.href;  
+                		var index = reurl.lastIndexOf('/') + 1;				
+                		var Reurl = reurl.substring(index);
+                		Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+           			 %> 
+       			 	<!-- 用户头像 -->
+					<a href="javascript:;" class="author-pic">
+						<% if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+							<img src="images/user.jpg" width="50px" />
+						<% } %>
+						<% if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+							<img src="<%=UserInfo.Image%>" width="50px" />
+						<% } %>
+					</a>
+					<!-- 用户昵称和发表时间==> 多久前发表 -->
+					<div class="issue-wrap">
+						<h2 class="author-name"><%=UserInfo.UserNick%></h2>
+						<span class="issue-time"><span class="time"><%=Time%></span></span>
+					</div>
+					<!-- 评论图标，评论数，点赞图标，点赞数 -->
+                    <div class= "suspensionBox">
+                            <a href="javascript:;"   class="like" data-type = "like">
+                                <%=Like_Count%>
+                            </a>
+                            <a href="javascript:;" class="comment a-show-comment"><%=Comment_Count%></a>
+                        </div>
+					<!-- <div class="love-comment-num">
+						<a href="viewPhptos.html?pid=<%=Pid%>" class="comment-num fr" data-fn="comment">
+							<sup>
+								<%if (Comment_Count == 0) {%>
+									<%=Comment_Count%>
+								<% } %>
+								<%if (Comment_Count != 0) {%>
+									<%=Comment_Count - 1%>
+								<% } %>
+							</sup>
+						</a>
+						<a href="javascript:;" class="love-num fr" data-fn="love"><sup><%=Like_Count%></sup></a>
+					</div> -->
+				</div>
+				<input type="hidden" value="<%=Pid%>" id="pictureId"/>
+			</li>	
+		</script>
+		<script type='text/template' id='userCommentTemp'>
+			<li data-uid=<%=UserInfo.Uid%>>
+			<% var reurl=window.location.href;  
+                var index = reurl.lastIndexOf('/') + 1;				
+                var Reurl = reurl.substring(index);
+                Reurl=Reurl.replaceAll('?','||').replaceAll('=','__').replaceAll('&','#');
+           	 %> 
+				<a href='javascript:;'>
+				<% if (UserInfo.Image == '' || UserInfo.Image == 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+					<img class='user-icon fl' src="images/user.jpg" data-uid="<%=UserInfo.Uid%>"/></a>
+				<% } %>
+				<% if (UserInfo.Image != '' && UserInfo.Image != 'http://zoneimages.moonbasa.com/images/user.jpg') {%>
+					<img class='user-icon fl' src="<%=UserInfo.Image%>" data-uid="<%=UserInfo.Uid%>"/></a>
+				<% } %> 
+                <div>
+				<span class='user'><%=UserInfo.UserNick%></span>
+				<span class='time'><%=CreateTime%></span>
+				<p class='replay'><%=Content%></p>
+                </div>
+				<input type="hidden" value="<%=UserInfo.Uid%>" data-type='UserInfo.Uid'/>
+			</li>
+		</script>
+
+    <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="js/ejs_production.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/tools/MZ_share.js"></script>
+</body>
+
+</html>

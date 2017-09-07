@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css"  rel="stylesheet" />
+<link href="css/Personal.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/layer.m.js"></script>
+<script type="text/javascript" src="js/public.js"></script>s
+<script type="text/javascript" src="js/newPwd.js"></script>
+<title>修改密码</title>
+</head>
+
+<body>
+<div class="person_top" id="modifyTop">
+	<a class="person_top_ico" href="set.html"></a>
+    修改密码
+    </div>
+</div>
+<div class="center_box" id="modifyWrap">
+    <div class="p_changepwd">
+        	<ul class="p_input_ul">
+            	<li>
+                	<input class="p_input code" placeholder="请输入手机号" type="text" id="Phone">
+                    <span class="formLine"></span>   
+                    <a class="getcode" href="javascript:;" id="getVerifyCode">获取验证码</a>
+                </li>
+                <li>
+                	<input class="p_input"  placeholder="请输入短信验证码" type="text" id="verifyCode">
+                </li>
+            </ul>       
+    </div>
+    <div class="p_btn_bottom" id="Submit">
+    	提交
+    </div>
+</div>
+
+<div class="person_top hidden" id="newpage">
+    <a class="person_top_ico" href="set.html"></a>
+    设置新密码
+    </div>
+</div>
+<div class="center_box hidden" id="newWrap">
+    <div class="p_changepwd">
+            <ul class="p_input_ul">
+                <li>
+                    <input class="p_input"  placeholder="新密码6-16位字符" type="password" id="newPwd">
+                </li>
+                <li>
+                    <input class="p_input"  placeholder="重复新密码" type="password" id="repeatPwd">
+                </li>
+            </ul>       
+    </div>
+    <div class="p_btn_bottom" id="Save">
+        保存
+    </div>
+</div>
+
+</body>
+
+
+</html>

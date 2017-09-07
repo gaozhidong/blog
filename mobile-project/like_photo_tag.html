@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/Personal.css"  rel="stylesheet" />
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+
+<script src="js/ejs_production.js"></script>  
+<title>我的相册</title>
+</head>
+
+<body>
+<div class="person_top">
+	<a class="person_top_ico" href="my_like.html"></a>
+    标签页
+</div>
+<div class="like_photo_area">
+	<ul class="clearfix">
+    	<!-- <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_03.jpg"></a>
+            <div class="today_time">
+            <span class="time_solid"></span>
+                <a class="like_tag_style" href="javascript:;">标签：美女</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li>
+        <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_05.jpg"></a>
+            <div class="today_time">
+             <span class="time_solid"></span>
+            	<a class="like_tag_style" href="javascript:;">标签：风景</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li>
+       <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_03.jpg"></a>
+            <div class="today_time">
+            <span class="time_solid"></span>
+                <a class="like_tag_style" href="javascript:;">标签：美女</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li>
+        <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_05.jpg"></a>
+            <div class="today_time">
+             <span class="time_solid"></span>
+            	<a class="like_tag_style" href="javascript:;">标签：风景</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li>
+       <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_03.jpg"></a>
+            <div class="today_time">
+            <span class="time_solid"></span>
+                <a class="like_tag_style" href="javascript:;">标签：美女</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li>
+        <li>
+        	<a class="like_pic" href="javascript" class="like_pic"><img src="images/like_photo_05.jpg"></a>
+            <div class="today_time">
+             <span class="time_solid"></span>
+            	<a class="like_tag_style" href="javascript:;">标签：风景</a>
+                <a class="photo_num" href="javascript:;">(共23张)</a>
+            </div>
+        </li> -->
+    </ul> 	
+</div>
+
+
+</body>
+<script>
+
+//======================我的相册模板渲染===============================
+function photo_list(page)
+{
+    $.ajax({
+    url:"data/like_photo_tag.json",
+    type:"GET",
+    dataType:"json",
+    success: function(data){
+        console.log(data);
+        data=data.Data;
+        index_html="";
+        for(var i=0; i<data.length;i++)
+        {
+        index_html+= new EJS({url: 'views/photo_tag.ejs'}).render(data[i]);
+        }
+        loading_hide();
+        $(".like_photo_area ul").append(index_html);
+    }
+});
+}
+
+photo_list(0);
+
+//=========================瀑布流==============================
+
+$(window).scroll(function () {
+
+   totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+
+     if ($(document).height() <= totalheight) {
+        if($('.like_photo_area li').size()<50){
+            loading_show();
+            photo_list(0);
+        }
+    }
+});
+
+
+//加载时候显示
+
+
+function loading_show(){
+
+    $("body").append('<div class="loading"></div>');
+}
+function loading_hide(){
+   $(".loading").remove();
+}
+
+
+
+
+</script>
+
+</html>

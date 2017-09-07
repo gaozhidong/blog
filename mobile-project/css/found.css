@@ -1,0 +1,156 @@
+@charset "utf-8";
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+.top {
+  background-color: #f7f7f7;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  font-size: 1.6em;
+  text-align: center;
+  color: #595959;
+}
+.found {
+  background-color: #ededed;
+  padding-bottom: 50px;
+}
+.found .slider {
+  width: 100%;
+  position: relative;
+}
+.found .slider .slider-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+.found .slider .slider-nav {
+  position: absolute;
+  bottom: 10px;
+  left: 45%;
+  z-index: 50;
+}
+.found .slider .slider-nav-item {
+  width: 20px;
+  height: 5px;
+  display: block;
+  margin: 0 3px;
+  float: left;
+  display: inline;
+  background-color: #404040;
+  cursor: pointer;
+}
+.found .slider .slider-nav-item-current {
+  background-color: #ff7f00;
+}
+.found .nav {
+  height: 130px;
+  background: url("../images/f-bb.png") bottom left repeat-x;
+}
+.found .nav .nav_box {
+  background-color: #ffffff;
+  height: 124px;
+}
+.found .nav .nav_box li {
+  width: 33%;
+  float: left;
+  display: inline;
+  text-align: center;
+}
+.found .nav .m-show,
+.found .nav .m-dapei,
+.found .nav .m-sheji {
+  background: url("../images/f-tit.png") no-repeat;
+  width: 60px;
+  height: 90px;
+  margin-top: 20px;
+}
+.found .nav .m-show {
+  background-position: 0px 0px;
+}
+.found .nav .m-dapei {
+  background-position: -120px 0px;
+}
+.found .nav .m-sheji {
+  background-position: -240px 0px;
+}
+.found .f_list {
+  background-color: #ffffff;
+}
+.found .f_list li {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: #e6e6e6 1px solid;
+  background: url("../images/f_arrow.png") 98% 13px no-repeat;
+  display: block;
+  clear: both;
+  padding: 10px 10px ;
+}
+.found .f_list li i {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url("../images/f-ico.png") 0px 0px no-repeat;
+  margin-top: 5px;
+  margin-left: 10px;
+  float: left;
+  display: inline;
+}
+.found .f_list li i.figure {
+  background-position: 0px 0px;
+}
+.found .f_list li i.activ {
+  background-position: 0px -65px;
+}
+.found .f_list li i.tags {
+  background-position: 0px -134px;
+}
+.found .f_list li i.conn {
+  background-position: 0px -201px;
+}
+.found .f_list li .info {
+  float: left;
+  display: inline;
+}
+.found .f_list li .info h2 {
+  font-size: 1.4em;
+  line-height: 20px;
+  color: #656565;
+}
+.found .f_list li .info h3 {
+  font-size: 1em;
+  line-height: 20px;
+  color: #999;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  .found .nav {
+    background: url("../images/f-bb@2x.png") bottom left repeat-x;
+    background-size: 18px 7px;
+  }
+  .found .nav .m-show,
+  .found .nav .m-dapei,
+  .found .nav .m-sheji {
+    background: url("../images/f-tit@2x.png") no-repeat;
+    background-size: 294px 86px;
+  }
+  .found .nav .m-show {
+    background-position: 0px 0px;
+  }
+  .found .nav .m-dapei {
+    background-position: -120px 0px;
+  }
+  .found .nav .m-sheji {
+    background-position: -240px 0px;
+  }
+  .found .f_list li i {
+    background: url("../images/f-ico@2x.png") 0px 0px no-repeat;
+    background-size: 25px 225px;
+  }
+}
+@media screen and (min-width: 639px) {
+  .found .slider .slider-nav {
+    bottom: 25px;
+    left: 48%;
+  }
+}

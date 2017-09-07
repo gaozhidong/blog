@@ -1,0 +1,11 @@
+{
+	"applinks":{
+		"apps":[],
+		"details":[
+			{
+				"appID":"1034294050.com.moonbasa.zone",
+				"paths":["/T_find-detail.html?id=*","/T_massage.html?id=*","/T_viewPhptos.html?pid=*"]
+			}
+		]
+	}
+}
