@@ -1,5 +1,8 @@
 ## 设计模式
 
+### design-patterns-tutorisl
+订阅发布模式
+
 ### observer
 观察者模式
 
