@@ -6,3 +6,6 @@
 ###　singleton
 
 单例模式
+
+### iterable
+可遍历模式
