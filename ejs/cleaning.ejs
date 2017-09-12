@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <%for(var i in person[0]) {%>
+            <th><%=i %></th>
+        <%}%>
+    </tr>
+
+    <%for(var j= 0; j < person.length; j++) { %>
+        <tr>
+            <%for(var attribute in person[j]) {%>
+                    <td><%= person[j][attribute] %></td>
+            <%}%>
+        </tr>
+    <%}%>
+
+</table>
