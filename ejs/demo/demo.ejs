@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>日期</th>
+            <% for(var p in myObj.maps) { %>
+            		<th><%= myObj.maps[p] %></th>
+            <% } %>
+        </tr>
+    </thead>
+    <tbody>
+    	<% for(var content in myObj.contents) { %>
+    		<tr>
+    			<td>
+					<div align="center"><%= myObj.contents[content].contentTitle %></div>
+        		</td>
+        		<% for(var item in myObj.contents[content].contentArray) { %>
+	       				<td>
+    	       				<div align="center"><%= myObj.contents[content].contentArray[item] %></div>
+       					</td>
+        		<% } %>
+        	</tr>
+        <% } %>
+    </tbody>
+</table>

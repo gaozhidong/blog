@@ -1,0 +1,32 @@
+    .even {
+        background: #F5FAFA;
+    }
+    
+    .odd {
+        background: #FFF;
+    }
+    
+    .thead {
+        background: #F5F5AA;
+    }
+    
+    table {
+        border: 1px solid #e7e7e7;
+        border-collapse: collapse;
+        width: 100%;
+        clear: both;
+        overflow: hidden;
+        padding: 10px 0 30px 0;
+        overflow-x: auto;
+    }
+    
+    table tr td,
+    table tr th {
+        border: 1px solid #C1DAD7;
+        color: #4f6b72;
+    }
+    
+    table tr td {
+        word-break: break-all;
+        overflow: hidden;
+    }
