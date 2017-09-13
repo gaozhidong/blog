@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>css 轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .window {
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+
+            overflow: hidden;
+        }
+
+        .pics {
+            width: 600px;
+            display: flex;
+        }
+
+        .pic {
+            width: 200px;
+            height: 200px;
+        }
+
+        .pic:nth-child(1) {
+            background: green;
+        }
+
+        .pic:nth-child(2) {
+            background: red;
+        }
+
+        .pic:nth-child(3) {
+            background: purple;
+        }
+
+        [name=x] {
+            display: none;
+        }
+
+        [name=x]:nth-child(1):checked~.window .pics {
+            transform: translateX(0);
+        }
+
+        [name=x]:nth-child(2):checked~.window .pics {
+            transform: translateX(-200px);
+        }
+
+        [name=x]:nth-child(3):checked~.window .pics {
+            transform: translateX(-400px);
+        }
+
+        label {
+            border: 1px solid black;
+            padding: 0 0.5em;
+        }
+
+        .pics {
+            transition: all 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="r1" type="radio" name="x" checked>
+    <input id="r2" type="radio" name="x">
+    <input id="r3" type="radio" name="x">
+    <div class="window">
+        <div class="pics">
+            <div class="pic">1</div>
+            <div class="pic">2</div>
+            <div class="pic">3</div>
+        </div>
+    </div>
+    <label for="r1">1</label>
+    <label for="r2">2</label>
+    <label for="r3">3</label>
+
+</body>
+
+</html>
