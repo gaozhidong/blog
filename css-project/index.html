@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title> 二级菜单</title>
+</head>
+<style>
+    ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+body{
+  color: black;
+}
+
+ul.navmenu{
+  width: 100px;
+  border-bottom: 1px solid black;
+}
+
+ul.navmenu>li{
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+ul.navmenu>li>.menu{
+  display: block;
+  padding: 8px;
+  text-align: center;
+  position: relative;
+}
+
+
+ul.submenu{
+  display: none;
+}
+
+ul.navmenu>li>.menu:hover   ul.submenu{
+  display: block;
+  position: absolute;
+  left: calc(100% + 1px);
+  top: -1px;
+  width: 100px;
+  border: 1px solid red;
+}
+</style>
+<body>
+
+  <ul class="navmenu">
+    <li>
+      <div class="menu" href="#x">
+        选项1
+        <ul class="submenu">
+          <li><a href="#">子选项1</a>
+          </li>
+          <li><a href="#">子选项2</a>
+          </li>
+          <li><a href="#">子选项3</a>
+          </li>
+        </ul>
+      </div>
+
+    </li>
+
+    <li>
+      <div class="menu" href="#">选项2
+        <ul class="submenu">
+          <li><a href="#">子选项1</a>
+          </li>
+          <li><a href="#">子选项2</a>
+          </li>
+          <li><a href="#">子选项3</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="menu" href="#">选项3
+        <ul class="submenu">
+          <li><a href="#">子选项1</a>
+          </li>
+          <li><a href="#">子选项2</a>
+          </li>
+          <li><a href="#">子选项3</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="menu" href="#">选项4
+        <ul class="submenu">
+          <li><a href="#">子选项1</a>
+          </li>
+          <li><a href="#">子选项2</a>
+          </li>
+          <li><a href="#">子选项3</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</body>
+
+</html>
