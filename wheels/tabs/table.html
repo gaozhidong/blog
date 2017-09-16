@@ -1,35 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hans">
-  
-  <header>
+
+<header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>tables</title>
     <link rel="stylesheet" href="table.css">
-  </header>
-    <body>
-  <div class="wrapper">
-    <div class="tabs">
-      <ol data-role="tabs-nav">
-        <li>how buying works</li>
-        <li>how selling works</li>
-      </ol>
-      <ol data-role="tabs-panes">
-        <li>
-          <div class="circle">
-            1
-          </div>
-        </li>
-        <li>
-          <div class="circle">
-            2
-          </div>
-        </li>
-      </ol>
+</header>
+
+<body>
+    <div class="wrapper">
+        <div class="tabs">
+            <ol data-role="tabs-nav">
+                <li>第一个</li>
+                <li>第二个</li>
+            </ol>
+            <ol data-role="tabs-panes">
+                <li>
+                    <div class="circle">
+                        1
+                    </div>
+                </li>
+                <li>
+                    <div class="circle">
+                        2
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
-  </div>
     <script src="../dom/dom.js"></script>
     <script src="table.js"></script>
+    <script>
+        new Tabs({
+        element: document.querySelectorAll('.tabs')[0]
+        })
+    </script>
 </body>
+
 </html>

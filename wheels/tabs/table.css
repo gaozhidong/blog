@@ -49,6 +49,7 @@ body {
 }
 
 .tabs ol:first-child>li {
+    cursor: pointer;
     flex-grow: 1;
     padding: 20px;
     text-align: center;
