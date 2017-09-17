@@ -2,9 +2,10 @@ class Pager {
 	constructor(options) {
 		let defaultOptions = {
 			element: null,
-			buttonContent: 10,
+			buttonCount: 10,
 			currentPage: 1,
-			totalPage: '',
+			totalPage: 1,
+			pageQuery: '', // 'page'
 			templates: {
 				number: '<span>%page%</span>',
 				prev: '<button class=prev>上一页</button>',
@@ -119,5 +120,4 @@ class Pager {
 		}
 		return ol
 	}
-}
 }
