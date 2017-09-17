@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Pager</title>
+  <link rel="stylesheet" href="pager.css">
+
+
+<div>
+    <p>
+      这个分页器会在控制台打印出页数
+    </p>
+    <div class="pager"> </div>
+  </div>
+  <div>
+    <p>
+      这个分页器会改变 url
+    </p>
+    <div class="pager"> </div>
+  </div>
+  <script src="../dom/dom.js"></script>
+  <script src="../bom/bom.js"></script>
+  <script src="pager.js"></script>
+  <script>
+    let pagers = document.querySelectorAll('.pager')
+    new Pager({
+      element: pagers[0],
+      currentPage: 1,
+      totalPage: 100,
+    })
+    pagers[0].addEventListener('pageChange', (e)=>{
+      console.log(e.detail.page)
+    })
+    new Pager({
+      element: pagers[1],
+      currentPage: parseInt(bom.queryString.get('page'),10),
+      totalPage: 100,
+      pageQuery: 'page'
+    })
+  </script>
+
+</html>
