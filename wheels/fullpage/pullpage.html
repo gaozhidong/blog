@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fullpage</title>
+  <link rel="stylesheet" href="pullpage.css">
+</head>
+
+<body>
+
+  <div class="page">
+    <section>
+      <div class="circle">1</div>
+    </section>
+    <section>
+      <div class="circle">2</div>
+    </section>
+    <section>
+      <div class="circle">3</div>
+    </section>
+    <section>
+      <div class="circle">4</div>
+    </section>
+  </div>
+  <script src="../dom/dom.js"></script>
+  <script src="pullpage.js"></script>
+  <script>
+    new FullPage({
+      element: document.querySelector('body>.page')
+    })
+  </script>
+</body>
+
+</html>
